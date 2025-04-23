@@ -2,50 +2,125 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Centro de Memória</title>
+  <title>Centro de Memória FATEC</title>
   <style>
     body {
       font-family: Arial, sans-serif;
+      max-width: 1000px;
+      margin: 0 auto;
       padding: 20px;
+      line-height: 1.6;
     }
     h1 {
-      color: #333;
+      color: #003366;
+      text-align: center;
+      margin-bottom: 30px;
     }
-    ul {
-      padding: 0;
-      list-style: none;
+    h2 {
+      color: #003366;
+      border-bottom: 2px solid #003366;
+      padding-bottom: 5px;
+      margin-top: 30px;
     }
-    li {
-      margin-bottom: 10px;
-      background: #f4f4f4;
-      padding: 10px;
+    .secao {
+      background-color: #f5f5f5;
+      padding: 15px;
       border-radius: 5px;
+      margin-bottom: 15px;
+    }
+    .documento, .entrevista, .catalogo {
+      background-color: #f0f8ff;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border-left: 4px solid #003366;
+    }
+    a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <h1>Centro de Memória</h1>
-  <ul id="lista-memoria"></ul>
-
- <script>
-  fetch('https://raw.githubusercontent.com/heloisa-cardillo/site-memoria/refs/heads/main/output/centro_memoria_dados.json')
-    .then(response => response.json())
-    .then(data => {
-      const lista = document.getElementById('lista-memoria');
-      data.forEach(item => {
-        const li = document.createElement('li');
-        li.innerHTML = `
-          <strong>${item.titulo || 'Sem título'}</strong><br>
-          ${item.descricao || ''}
-        `;
-        lista.appendChild(li);
+  <h1 id="titulo-principal">Centro de Memória FATEC</h1>
+  
+  <h2>Seções de Conteúdo</h2>
+  <div id="secoes-container"></div>
+  
+  <h2>Entrevistas</h2>
+  <div id="entrevistas-container"></div>
+  
+  <h2>Catálogos</h2>
+  <div id="catalogos-container"></div>
+  
+  <h2>Outros Documentos</h2>
+  <div id="documentos-container"></div>
+  
+  <script>
+    // Carregar dados do arquivo JSON local
+    fetch('centro_memoria_dados.json')
+      .then(response => response.json())
+      .then(data => {
+        // Preencher o título principal
+        if (data.titulo_principal) {
+          document.getElementById('titulo-principal').textContent = data.titulo_principal;
+        }
+        
+        // Preencher as seções
+        const secoesContainer = document.getElementById('secoes-container');
+        data.secoes.forEach(secao => {
+          const secaoDiv = document.createElement('div');
+          secaoDiv.className = 'secao';
+          secaoDiv.innerHTML = `
+            <h3 id="${secao.id}">${secao.titulo}</h3>
+            <p>${secao.conteudo}</p>
+          `;
+          secoesContainer.appendChild(secaoDiv);
+        });
+        
+        // Preencher as entrevistas
+        const entrevistasContainer = document.getElementById('entrevistas-container');
+        data.entrevistas.forEach(entrevista => {
+          const entrevistaDiv = document.createElement('div');
+          entrevistaDiv.className = 'entrevista';
+          entrevistaDiv.innerHTML = `
+            <h4>${entrevista.titulo}</h4>
+            <a href="${entrevista.url}" target="_blank">Acessar entrevista</a>
+          `;
+          entrevistasContainer.appendChild(entrevistaDiv);
+        });
+        
+        // Preencher os catálogos
+        const catalogosContainer = document.getElementById('catalogos-container');
+        data.catalogos.forEach(catalogo => {
+          const catalogoDiv = document.createElement('div');
+          catalogoDiv.className = 'catalogo';
+          catalogoDiv.innerHTML = `
+            <h4>${catalogo.titulo}</h4>
+            <a href="${catalogo.url}" target="_blank">Acessar catálogo</a>
+          `;
+          catalogosContainer.appendChild(catalogoDiv);
+        });
+        
+        // Preencher outros documentos
+        const documentosContainer = document.getElementById('documentos-container');
+        data.documentos.forEach(documento => {
+          const documentoDiv = document.createElement('div');
+          documentoDiv.className = 'documento';
+          documentoDiv.innerHTML = `
+            <h4>${documento.titulo}</h4>
+            <a href="${documento.url}" target="_blank">Acessar documento</a>
+          `;
+          documentosContainer.appendChild(documentoDiv);
+        });
+      })
+      .catch(error => {
+        console.error('Erro ao carregar o JSON:', error);
+        document.getElementById('secoes-container').innerHTML = "<div class='secao'>Erro ao carregar os dados. Certifique-se de que o arquivo JSON está no mesmo diretório.</div>";
       });
-    })
-    .catch(error => {
-      console.error('Erro ao carregar o JSON:', error);
-      document.getElementById('lista-memoria').innerHTML = "<li>Erro ao carregar os dados.</li>";
-    });
-</script>
-
+  </script>
 </body>
 </html>
