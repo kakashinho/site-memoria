@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centro de Memória FATEC - Dados Extraídos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #003366;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #003366;
+            border-bottom: 2px solid #003366;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        .secao {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        .documento, .entrevista, .catalogo {
+            background-color: #f0f8ff;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border-left: 4px solid #003366;
+        }
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="titulo-principal">Centro de Memória FATEC</h1>
+    
+    <h2>Seções de Conteúdo</h2>
+    <div id="secoes-container"></div>
+    
+    <h2>Entrevistas</h2>
+    <div id="entrevistas-container"></div>
+    
+    <h2>Catálogos</h2>
+    <div id="catalogos-container"></div>
+    
+    <h2>Outros Documentos</h2>
+    <div id="documentos-container"></div>
+    
+    <script>
+        // Dados incorporados diretamente no arquivo HTML
+        const data = {
+            "titulo_principal": "",
+            "secoes": [],
+            "documentos": [
+                {
+                    "titulo": "Vídeo de apresentação do Centro de Memórias",
+                    "url": "https://drive.google.com/file/d/1Q_qKN48JRKcLZPD3oFUzTXj9HWI9dD7t/view"
+                },
+                {
+                    "titulo": "Quem foi Cesare Lattes?",
+                    "url": "https://drive.google.com/file/d/1kEx7Y6QIP42cGZsiFt9sT_MDRUpQJAFQ/view?usp=drive_link"
+                },
+                {
+                    "titulo": "Quem foi Paula Souza?",
+                    "url": "https://drive.google.com/file/d/1FAzaTTTNyuhCLGSeIbCiYwuJUn4RVs78/view?usp=drive_link"
+                },
+                {
+                    "titulo": "BAJA SAE Brasil",
+                    "url": "https://drive.google.com/file/d/1i6rj4sdhCGR1HsvqI9UJUphCdsTW2DGo/view?usp=sharing"
+                },
+                {
+                    "titulo": "Histórico Laboratório Asas Rotativas e Drones",
+                    "url": "https://drive.google.com/file/d/1JRpYsQ_UirSIHnmq2_KMN9Mos92aeT9r/view?usp=sharing"
+                },
+                {
+                    "titulo": "Chegada da Aeronave Guri na Fatec",
+                    "url": "https://drive.google.com/file/d/1ynG1--fTR5XDGVaK5ibVri1Q9bzcer9n/view?usp=sharing"
+                },
+                {
+                    "titulo": "EMB-120 na Fatec",
+                    "url": "https://drive.google.com/file/d/1ywmQxCu8_YJidnx6I6m2q7V33a8RZZsg/view?usp=sharing"
+                },
+                {
+                    "titulo": "resumo da apresentação",
+                    "url": "https://drive.google.com/file/d/1Qk2NJhMlAQKWnL7zNqLV9z2hIFEARYe2/view?usp=sharing"
+                },
+                {
+                    "titulo": "link",
+                    "url": "https://drive.google.com/file/d/1ZBvb3Hmle4BaLtS8P046wl4SKZ03SJPc/view?usp=sharing"
+                },
+                {
+                    "titulo": "link",
+                    "url": "https://drive.google.com/file/d/1UIHH2UHvNBdAmZkjOFiXaZhmu0SQS4yd/view"
+                }
+            ],
+            "entrevistas": [
+                {
+                    "titulo": "Entrevista com o Professor Antônio Wellington Sales Rios",
+                    "url": "https://drive.google.com/file/d/1IvwmL92dNqbF7_8pORLdNdn66B98-ovg/view?usp=drive_link"
+                },
+                {
+                    "titulo": "Entrevista com o Professor Nilo Jeronimo Vieira",
+                    "url": "https://drive.google.com/file/d/1SxTAxrzHkQ6EKTVCfhem2Oe9vtPuTuDW/view?usp=drive_link"
+                },
+                {
+                    "titulo": "Entrevista com o Professor Luiz Antonio Tozi",
+                    "url": "https://drive.google.com/file/d/1L60aHN_IGIya8PS7fMvbJAEtyCD7DQ84/view?usp=drive_link"
+                },
+                {
+                    "titulo": "Entrevista com o Professor Fernando Masanori",
+                    "url": "https://drive.google.com/file/d/160rf0G9JCLqXYyN3GmVudSvl9y9OdCfN/view?usp=drive_link"
+                }
+            ],
+            "catalogos": [
+                {
+                    "titulo": "Catálogo de Asas Rotativas",
+                    "url": "https://drive.google.com/file/d/1I_JlMfOYrTmcablq_3jG8cv9fE9XnYqa/view?usp=drive_link"
+                },
+                {
+                    "titulo": "Catálogo de Manutenção de Aeronaves",
+                    "url": "https://drive.google.com/file/d/1HGOhL7bORI7zJgyWCMDNDVKlUXc529EK/view?usp=drive_link"
+                },
+                {
+                    "titulo": "Catálogo de Metrologia",
+                    "url": "https://drive.google.com/file/d/18ynfEVwQ4yeyNNCLlyySBQm90yZWwv2s/view?usp=drive_link"
+                },
+                {
+                    "titulo": "Catálogo de Propulsores",
+                    "url": "https://drive.google.com/file/d/1rpHUElThmrMOsXKNB-txXvOWn4He9kvI/view?usp=sharing"
+                }
+            ]
+        };
+        
+        // Preencher o título principal
+        if (data.titulo_principal) {
+            document.getElementById('titulo-principal').textContent = data.titulo_principal;
+        }
+        
+        // Preencher as seções
+        const secoesContainer = document.getElementById('secoes-container');
+        data.secoes.forEach(secao => {
+            const secaoDiv = document.createElement('div');
+            secaoDiv.className = 'secao';
+            secaoDiv.innerHTML = `
+                <h3 id="${secao.id}">${secao.titulo}</h3>
+                <p>${secao.conteudo}</p>
+            `;
+            secoesContainer.appendChild(secaoDiv);
+        });
+        
+        // Preencher as entrevistas
+        const entrevistasContainer = document.getElementById('entrevistas-container');
+        data.entrevistas.forEach(entrevista => {
+            const entrevistaDiv = document.createElement('div');
+            entrevistaDiv.className = 'entrevista';
+            entrevistaDiv.innerHTML = `
+                <h4>${entrevista.titulo}</h4>
+                <a href="${entrevista.url}" target="_blank">Acessar entrevista</a>
+            `;
+            entrevistasContainer.appendChild(entrevistaDiv);
+        });
+        
+        // Preencher os catálogos
+        const catalogosContainer = document.getElementById('catalogos-container');
+        data.catalogos.forEach(catalogo => {
+            const catalogoDiv = document.createElement('div');
+            catalogoDiv.className = 'catalogo';
+            catalogoDiv.innerHTML = `
+                <h4>${catalogo.titulo}</h4>
+                <a href="${catalogo.url}" target="_blank">Acessar catálogo</a>
+            `;
+            catalogosContainer.appendChild(catalogoDiv);
+        });
+        
+        // Preencher outros documentos
+        const documentosContainer = document.getElementById('documentos-container');
+        data.documentos.forEach(documento => {
+            const documentoDiv = document.createElement('div');
+            documentoDiv.className = 'documento';
+            documentoDiv.innerHTML = `
+                <h4>${documento.titulo}</h4>
+                <a href="${documento.url}" target="_blank">Acessar documento</a>
+            `;
+            documentosContainer.appendChild(documentoDiv);
+        });
+    </script>
+</body>
+</html>
