@@ -1,11 +1,50 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8">
-    <title>Site Memória</title>
-  </head>
-  <body>
-    <h1>Bem-vindo ao meu site!</h1>
-    <p>Este é o conteúdo da página inicial.</p>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <title>Centro de Memória</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    h1 {
+      color: #333;
+    }
+    ul {
+      padding: 0;
+      list-style: none;
+    }
+    li {
+      margin-bottom: 10px;
+      background: #f4f4f4;
+      padding: 10px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Centro de Memória</h1>
+  <ul id="lista-memoria"></ul>
+
+  <script>
+    fetch('output/centro_memoria_dados.json')
+      .then(response => response.json())
+      .then(data => {
+        const lista = document.getElementById('lista-memoria');
+        data.forEach(item => {
+          const li = document.createElement('li');
+          li.innerHTML = `
+            <strong>${item.titulo || 'Sem título'}</strong><br>
+            ${item.descricao || ''}
+          `;
+          lista.appendChild(li);
+        });
+      })
+      .catch(error => {
+        console.error('Erro ao carregar o JSON:', error);
+        document.getElementById('lista-memoria').innerHTML = "<li>Erro ao carregar os dados.</li>";
+      });
+  </script>
+</body>
 </html>
