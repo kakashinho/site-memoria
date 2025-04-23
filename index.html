@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <title>Centro de Memória FATEC</title>
@@ -11,54 +12,63 @@
       padding: 20px;
       line-height: 1.6;
     }
+
     h1 {
       color: #003366;
       text-align: center;
       margin-bottom: 30px;
     }
+
     h2 {
       color: #003366;
       border-bottom: 2px solid #003366;
       padding-bottom: 5px;
       margin-top: 30px;
     }
+
     .secao {
       background-color: #f5f5f5;
       padding: 15px;
       border-radius: 5px;
       margin-bottom: 15px;
     }
-    .documento, .entrevista, .catalogo {
+
+    .documento,
+    .entrevista,
+    .catalogo {
       background-color: #f0f8ff;
       padding: 10px;
       margin-bottom: 10px;
       border-radius: 5px;
       border-left: 4px solid #003366;
     }
+
     a {
       color: #0066cc;
       text-decoration: none;
     }
+
     a:hover {
       text-decoration: underline;
     }
   </style>
 </head>
+
 <body>
   <h1 id="titulo-principal">Centro de Memória FATEC</h1>
-  
+
   <h2>Seções de Conteúdo</h2>
   <div id="secoes-container"></div>
-  
+
   <h2>Entrevistas</h2>
   <div id="entrevistas-container"></div>
-  
+
   <h2>Catálogos</h2>
   <div id="catalogos-container"></div>
-  
+
   <h2>Outros Documentos</h2>
   <div id="documentos-container"></div>
-  
+
   <script>
     // Carregar dados do arquivo JSON local
     fetch('output/centro_memoria_dados.json')
@@ -68,7 +78,7 @@
         if (data.titulo_principal) {
           document.getElementById('titulo-principal').textContent = data.titulo_principal;
         }
-        
+
         // Preencher as seções
         const secoesContainer = document.getElementById('secoes-container');
         data.secoes.forEach(secao => {
@@ -80,19 +90,26 @@
           `;
           secoesContainer.appendChild(secaoDiv);
         });
-        
+
         // Preencher as entrevistas
         const entrevistasContainer = document.getElementById('entrevistas-container');
+        // Ordenar as entrevistas para colocar a do Fernando Masanori em primeiro
+        data.entrevistas.sort((a, b) => {
+          if (a.titulo.includes('Fernando Masanori')) return -1;
+          if (b.titulo.includes('Fernando Masanori')) return 1;
+          return 0;
+        });
+
         data.entrevistas.forEach(entrevista => {
           const entrevistaDiv = document.createElement('div');
           entrevistaDiv.className = 'entrevista';
           entrevistaDiv.innerHTML = `
-            <h4>${entrevista.titulo}</h4>
-            <a href="${entrevista.url}" target="_blank">Acessar entrevista</a>
-          `;
+    <h4>${entrevista.titulo}</h4>
+    <a href="${entrevista.url}" target="_blank">Acessar entrevista</a>
+  `;
           entrevistasContainer.appendChild(entrevistaDiv);
         });
-        
+
         // Preencher os catálogos
         const catalogosContainer = document.getElementById('catalogos-container');
         data.catalogos.forEach(catalogo => {
@@ -104,7 +121,7 @@
           `;
           catalogosContainer.appendChild(catalogoDiv);
         });
-        
+
         // Preencher outros documentos
         const documentosContainer = document.getElementById('documentos-container');
         data.documentos.forEach(documento => {
@@ -123,4 +140,5 @@
       });
   </script>
 </body>
+
 </html>
