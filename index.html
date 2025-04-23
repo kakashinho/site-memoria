@@ -27,24 +27,25 @@
   <h1>Centro de Memória</h1>
   <ul id="lista-memoria"></ul>
 
-  <script>
-    fetch('https://raw.githubusercontent.com/heloisa-cardillo/site-memoria/main/output/centro_memoria_dados.json')
-      .then(response => response.json())
-      .then(data => {
-        const lista = document.getElementById('lista-memoria');
-        data.forEach(item => {
-          const li = document.createElement('li');
-          li.innerHTML = `
-            <strong>${item.titulo || 'Sem título'}</strong><br>
-            ${item.descricao || ''}
-          `;
-          lista.appendChild(li);
-        });
-      })
-      .catch(error => {
-        console.error('Erro ao carregar o JSON:', error);
-        document.getElementById('lista-memoria').innerHTML = "<li>Erro ao carregar os dados.</li>";
+ <script>
+  fetch('https://raw.githubusercontent.com/heloisa-cardillo/site-memoria/refs/heads/main/output/centro_memoria_dados.json')
+    .then(response => response.json())
+    .then(data => {
+      const lista = document.getElementById('lista-memoria');
+      data.forEach(item => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+          <strong>${item.titulo || 'Sem título'}</strong><br>
+          ${item.descricao || ''}
+        `;
+        lista.appendChild(li);
       });
-  </script>
+    })
+    .catch(error => {
+      console.error('Erro ao carregar o JSON:', error);
+      document.getElementById('lista-memoria').innerHTML = "<li>Erro ao carregar os dados.</li>";
+    });
+</script>
+
 </body>
 </html>
