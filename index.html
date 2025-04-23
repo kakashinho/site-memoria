@@ -93,21 +93,27 @@
 
         // Preencher as entrevistas
         const entrevistasContainer = document.getElementById('entrevistas-container');
-        // Ordenar as entrevistas para colocar a do Fernando Masanori em primeiro
-        data.entrevistas.sort((a, b) => {
-          if (a.titulo.includes('Fernando Masanori')) return -1;
-          if (b.titulo.includes('Fernando Masanori')) return 1;
-          return 0;
-        });
 
+        // Primeiro adicionar a entrevista do Fernando Masanori
+        const entrevistaMasanori = document.createElement('div');
+        entrevistaMasanori.className = 'entrevista';
+        entrevistaMasanori.innerHTML = `
+  <h4>Entrevista com o Professor Fernando Masanori</h4>
+  <a href="#" target="_blank">Acessar entrevista</a>
+`;
+        entrevistasContainer.appendChild(entrevistaMasanori);
+
+        // Adicionar as outras entrevistas (exceto a do Masanori)
         data.entrevistas.forEach(entrevista => {
-          const entrevistaDiv = document.createElement('div');
-          entrevistaDiv.className = 'entrevista';
-          entrevistaDiv.innerHTML = `
-    <h4>${entrevista.titulo}</h4>
-    <a href="${entrevista.url}" target="_blank">Acessar entrevista</a>
-  `;
-          entrevistasContainer.appendChild(entrevistaDiv);
+          if (!entrevista.titulo.includes('Fernando Masanori')) {
+            const entrevistaDiv = document.createElement('div');
+            entrevistaDiv.className = 'entrevista';
+            entrevistaDiv.innerHTML = `
+      <h4>${entrevista.titulo}</h4>
+      <a href="${entrevista.url}" target="_blank">Acessar entrevista</a>
+    `;
+            entrevistasContainer.appendChild(entrevistaDiv);
+          }
         });
 
         // Preencher os catálogos
