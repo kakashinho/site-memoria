@@ -28,7 +28,7 @@
   <ul id="lista-memoria"></ul>
 
   <script>
-    fetch('output/centro_memoria_dados.json')
+    fetch('https://raw.githubusercontent.com/heloisa-cardillo/site-memoria/main/output/centro_memoria_dados.json')
       .then(response => response.json())
       .then(data => {
         const lista = document.getElementById('lista-memoria');
