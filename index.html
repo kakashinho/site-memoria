@@ -22,15 +22,16 @@
 }
 
 .card {
-  width: 300px;
+  width: 250px; /* Reduzido de 300px para 250px */
   border: 2px solid #005c6e;
   border-radius: 5px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  margin-bottom: 30px; /* Adiciona margem inferior */
 }
 
 .card-image-container {
-  padding: 20px;
+  padding: 15px; /* Reduzido de 20px para 15px */
 }
 
 .card-image {
@@ -41,31 +42,33 @@
 }
 
 .card-content {
-  padding: 15px;
+  padding: 12px; /* Reduzido de 15px para 12px */
 }
 
 .card-title {
   color: #005c6e;
-  font-size: 24px;
-  margin-bottom: 10px;
+  font-size: 20px; /* Reduzido de 24px para 20px */
+  margin-bottom: 8px; /* Reduzido de 10px para 8px */
   text-align: center;
 }
 
 .card-text {
-  margin-bottom: 15px;
+  margin-bottom: 12px; /* Reduzido de 15px para 12px */
   color: #333;
+  font-size: 14px; /* Adicionado tamanho de fonte menor */
 }
 
 .saiba-mais {
   display: block;
-  width: 100px;
+  width: 90px; /* Reduzido de 100px para 90px */
   background-color: #005c6e;
   color: white;
   text-align: center;
-  padding: 8px 10px;
+  padding: 6px 8px; /* Reduzido de 8px 10px para 6px 8px */
   border-radius: 5px;
   text-decoration: none;
   margin-left: auto;
+  font-size: 14px; /* Adicionado tamanho de fonte menor */
 }
 
 .saiba-mais:hover {
@@ -166,6 +169,11 @@ entrevistaMasanori.innerHTML = `
   </div>
 `;
 entrevistasContainer.appendChild(entrevistaMasanori);
+
+// Adicionar espaçamento para o próximo item
+const espacamento = document.createElement('div');
+espacamento.style.marginBottom = '30px';
+entrevistasContainer.appendChild(espacamento);
 
         // Adicionar as outras entrevistas (exceto a do Masanori)
         data.entrevistas.forEach(entrevista => {
