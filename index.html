@@ -12,6 +12,60 @@
       padding: 20px;
       line-height: 1.6;
     }
+      .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+  }
+  
+  .card {
+    width: 300px;
+    border: 2px solid #005c6e;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  .card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background-color: #f0f0f0;
+  }
+  
+  .card-content {
+    padding: 15px;
+  }
+  
+  .card-title {
+    color: #005c6e;
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .card-text {
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  .saiba-mais {
+    display: block;
+    width: 100px;
+    background-color: #005c6e;
+    color: white;
+    text-align: center;
+    padding: 8px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-left: auto;
+  }
+  
+  .saiba-mais:hover {
+    opacity: 0.9;
+  }
 
     h1 {
       color: #003366;
@@ -94,14 +148,17 @@
         // Preencher as entrevistas
         const entrevistasContainer = document.getElementById('entrevistas-container');
 
-        // Primeiro adicionar a entrevista do Fernando Masanori
-        const entrevistaMasanori = document.createElement('div');
-        entrevistaMasanori.className = 'entrevista';
-        entrevistaMasanori.innerHTML = `
-  <h4>Entrevista com o Professor Fernando Masanori</h4>
-  <a href="#" target="_blank">Acessar entrevista</a>
+const entrevistaMasanori = document.createElement('div');
+entrevistaMasanori.className = 'card';
+entrevistaMasanori.innerHTML = `
+  <img src="imagens/fernando_masanori.jpg" alt="Fernando Masanori" class="card-image">
+  <div class="card-content">
+    <h3 class="card-title">Fernando Masanori</h3>
+    <p class="card-text">Entrevista com o Prof. Fernando Masanori.</p>
+    <a href="#" class="saiba-mais">Saiba +</a>
+  </div>
 `;
-        entrevistasContainer.appendChild(entrevistaMasanori);
+entrevistasContainer.appendChild(entrevistaMasanori);
 
         // Adicionar as outras entrevistas (exceto a do Masanori)
         data.entrevistas.forEach(entrevista => {
