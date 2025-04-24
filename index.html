@@ -14,66 +14,80 @@
     }
 
     .card-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 30px;
-}
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
 
-.card {
-  width: 250px; /* Reduzido de 300px para 250px */
-  border: 2px solid #005c6e;
-  border-radius: 5px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  margin-bottom: 30px; /* Adiciona margem inferior */
-}
+    .card {
+      width: 250px;
+      /* Reduzido de 300px para 250px */
+      border: 2px solid #005c6e;
+      border-radius: 5px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 30px;
+      /* Adiciona margem inferior */
+    }
 
-.card-image-container {
-  padding: 15px; /* Reduzido de 20px para 15px */
-}
+    .card-image-container {
+      padding: 15px;
+      /* Reduzido de 20px para 15px */
+    }
 
-.card-image {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
-}
+    .card-image {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
 
-.card-content {
-  padding: 12px; /* Reduzido de 15px para 12px */
-}
+    .card-content {
+      padding: 12px;
+      /* Reduzido de 15px para 12px */
+    }
 
-.card-title {
-  color: #005c6e;
-  font-size: 20px; /* Reduzido de 24px para 20px */
-  margin-bottom: 8px; /* Reduzido de 10px para 8px */
-  text-align: center;
-}
+    .card-title {
+      color: #005c6e;
+      font-size: 20px;
+      border-radius: 25px;
+      /* Reduzido de 24px para 20px */
+      margin-bottom: 8px;
+      /* Reduzido de 10px para 8px */
+      text-align: center;
+    }
 
-.card-text {
-  margin-bottom: 12px; /* Reduzido de 15px para 12px */
-  color: #333;
-  font-size: 14px; /* Adicionado tamanho de fonte menor */
-}
+    .card-text {
+      margin-bottom: 12px;
+      color: #333;
+      font-size: 14px;
+      line-height: 1.4;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+    }
 
-.saiba-mais {
-  display: block;
-  width: 90px; /* Reduzido de 100px para 90px */
-  background-color: #005c6e;
-  color: white;
-  text-align: center;
-  padding: 6px 8px; /* Reduzido de 8px 10px para 6px 8px */
-  border-radius: 5px;
-  text-decoration: none;
-  margin-left: auto;
-  font-size: 14px; /* Adicionado tamanho de fonte menor */
-}
+    .saiba-mais {
+      display: block;
+      width: 90px;
+      /* Reduzido de 100px para 90px */
+      background-color: #005c6e;
+      color: white;
+      text-align: center;
+      padding: 6px 8px;
+      /* Reduzido de 8px 10px para 6px 8px */
+      border-radius: 5px;
+      text-decoration: none;
+      margin-left: auto;
+      font-size: 14px;
+      /* Adicionado tamanho de fonte menor */
+    }
 
-.saiba-mais:hover {
-  opacity: 0.9;
-}
+    .saiba-mais:hover {
+      opacity: 0.9;
+    }
+
     h1 {
       color: #003366;
       text-align: center;
@@ -155,25 +169,25 @@
         // Preencher as entrevistas
         const entrevistasContainer = document.getElementById('entrevistas-container');
 
-     // Primeiro adicionar a entrevista do Fernando Masanori
-const entrevistaMasanori = document.createElement('div');
-entrevistaMasanori.className = 'card';
-entrevistaMasanori.innerHTML = `
+        // Primeiro adicionar a entrevista do Fernando Masanori
+        const entrevistaMasanori = document.createElement('div');
+        entrevistaMasanori.className = 'card';
+        entrevistaMasanori.innerHTML = `
   <div class="card-image-container">
-    <img src="https://heloisa-cardillo.github.io/site-memoria/masanori.jpg" alt="Fernando Masanori" class="card-image">
+    <img src="images/image.masanori.jpg" alt="Fernando Masanori" class="card-image">
   </div>
   <div class="card-content">
     <h3 class="card-title">Fernando Masanori</h3>
-    <p class="card-text">Entrevista com o Professor Fernando Masanori.</p>
-    <a href="https://heloisa-cardillo.github.io/site-memoria/Prof.%20Masanori.pdf" class="saiba-mais" target="_blank">Saiba +</a>
+    <p class="card-text">A entrevista com o Prof. Fernando Masanori revela uma trajetória inspiradora. Da infância desafiadora à formação em Computação na USP e mestrado no ITA, ele compartilha vivências como o burnout, o cuidado com o pai doente e sua atuação na FATEC São José dos Campos. Entre desafios e conquistas destaca-se seu compromisso com a educação transformadora e a inovação.</p>
+    <a href="docs/Prof. Masanori.pdf" class="saiba-mais" target="_blank">Saiba +</a>
   </div>
 `;
-entrevistasContainer.appendChild(entrevistaMasanori);
+        entrevistasContainer.appendChild(entrevistaMasanori);
 
-// Adicionar espaçamento para o próximo item
-const espacamento = document.createElement('div');
-espacamento.style.marginBottom = '30px';
-entrevistasContainer.appendChild(espacamento);
+        // Adicionar espaçamento para o próximo item
+        const espacamento = document.createElement('div');
+        espacamento.style.marginBottom = '30px';
+        entrevistasContainer.appendChild(espacamento);
 
         // Adicionar as outras entrevistas (exceto a do Masanori)
         data.entrevistas.forEach(entrevista => {
