@@ -17,7 +17,7 @@ body {
   width: 300px;
   height: auto;
   border: 2px solid #005c6e;
-  border-radius: 5px;
+  border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   position: relative;
@@ -33,6 +33,7 @@ body {
   height: 240px;
   display: block;
   object-fit: cover;
+  border-radius: 8px;
 }
 
 .card-content {
@@ -63,7 +64,7 @@ body {
   color: white;
   text-align: center;
   padding: 6px 8px;
-  border-radius: 5px;
+  border-radius: 8px;
   text-decoration: none;
   position: absolute;
   bottom: 12px;
