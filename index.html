@@ -10,27 +10,18 @@
 <body>
   <h1 id="titulo-principal">Centro de Memória FATEC</h1>
 
-  <h2>Seções de Conteúdo</h2>
-  <div id="secoes-container"></div>
-
-  <h2>Entrevistas</h2>
-  <div id="entrevistas-container"></div>
-
-  <h2>Personalidades e Locais Importantes</h2>
   <div class="card-container">
-    <!-- Card Masanori -->
     <div class="card">
       <div class="card-image-container">
-        <img src="statics/imgs/pessoas/masanori.jpg" alt="Fernando Masanori" class="card-image">
+        <img src="statics/imgs/icones/professor.png" alt="Entrevistas" class="card-image">
       </div>
       <div class="card-content">
-        <h3 class="card-title">Fernando Masanori</h3>
-        <p class="card-text">A entrevista com o Prof. Fernando Masanori revela uma trajetória inspiradora. Da infância desafiadora à formação em Computação na USP e mestrado no ITA, ele compartilha vivências como o burnout, o cuidado com o pai doente e sua atuação na FATEC São José dos Campos. Entre desafios e conquistas destaca-se seu compromisso com a educação transformadora e a inovação.</p>
+        <h3 class="card-title">Entrevistas</h3>
+        <p class="card-text">Entrevistas com os professores da Fatec de São José dos Campos</p>
         <a href="docs/Prof. Masanori.pdf" class="saiba-mais" target="_blank">Saiba +</a>
       </div>
     </div>
 
-    <!-- Card Parque Tecnológico -->
     <div class="card">
       <div class="card-image-container">
         <img src="statics/imgs/pictures/parqueTecnologico.png" alt="Parque Tecnológico" class="card-image">
@@ -42,10 +33,9 @@
       </div>
     </div>
 
-    <!-- Card Prof. Jessen Vidal -->
     <div class="card">
       <div class="card-image-container">
-        <img src="statics/imgs/pessoas/vidal.png" alt="Professor Jessen Vidal" class="card-image">
+        <img src="statics/imgs/pessoas/jessenVidal.jpg" alt="Professor Jessen Vidal" class="card-image">
       </div>
       <div class="card-content">
         <h3 class="card-title">Prof. Jessen Vidal</h3>
@@ -53,60 +43,18 @@
         <a href="#" class="saiba-mais">Saiba +</a>
       </div>
     </div>
+
+    <div class="card">
+      <div class="card-image-container">
+        <img src="statics/imgs/pessoas/lattes.jpg" alt="césar lattes" class="card-image">
+      </div>
+      <div class="card-content">
+        <h3 class="card-title">Cesare Lattes</h3>
+        <p class="card-text">Cesar Lattes (1924-2005) foi um cientista brasileiro. Estudou física e matemática na Universidade de São Paulo. Com 19 anos era assistente da cadeira de Física Teórica.</p>
+        <a href="#" class="saiba-mais">Saiba +</a>
+      </div>
+    </div>
   </div>
-
-  <h2>Catálogos</h2>
-  <div id="catalogos-container"></div>
-
-  <h2>Outros Documentos</h2>
-  <div id="documentos-container"></div>
-
-  <script>
-    fetch('output/centro_memoria_dados.json')
-      .then(response => response.json())
-      .then(data => {
-        if (data.titulo_principal) {
-          document.getElementById('titulo-principal').textContent = data.titulo_principal;
-        }
-
-        const secoesContainer = document.getElementById('secoes-container');
-        data.secoes.forEach(secao => {
-          const secaoDiv = document.createElement('div');
-          secaoDiv.className = 'secao';
-          secaoDiv.innerHTML = `
-            <h3 id="${secao.id}">${secao.titulo}</h3>
-            <p>${secao.conteudo}</p>
-          `;
-          secoesContainer.appendChild(secaoDiv);
-        });
-
-        const catalogosContainer = document.getElementById('catalogos-container');
-        data.catalogos.forEach(catalogo => {
-          const catalogoDiv = document.createElement('div');
-          catalogoDiv.className = 'catalogo';
-          catalogoDiv.innerHTML = `
-            <h4>${catalogo.titulo}</h4>
-            <a href="${catalogo.url}" target="_blank">Acessar catálogo</a>
-          `;
-          catalogosContainer.appendChild(catalogoDiv);
-        });
-
-        const documentosContainer = document.getElementById('documentos-container');
-        data.documentos.forEach(documento => {
-          const documentoDiv = document.createElement('div');
-          documentoDiv.className = 'documento';
-          documentoDiv.innerHTML = `
-            <h4>${documento.titulo}</h4>
-            <a href="${documento.url}" target="_blank">Acessar documento</a>
-          `;
-          documentosContainer.appendChild(documentoDiv);
-        });
-      })
-      .catch(error => {
-        console.error('Erro ao carregar o JSON:', error);
-        document.getElementById('secoes-container').innerHTML = "<div class='secao'>Erro ao carregar os dados. Certifique-se de que o arquivo JSON está no mesmo diretório.</div>";
-      });
-  </script>
 </body>
 
 </html>

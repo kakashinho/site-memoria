@@ -16,6 +16,7 @@ body {
 
 .card {
   width: 300px;
+  height: 540px;
   border: 2px solid #005c6e;
   border-radius: 5px;
   overflow: hidden;
@@ -28,7 +29,7 @@ body {
 
 .card-image {
   width: 100%;
-  height: 200px;
+  height: 240px;
   display: block;
   object-fit: cover;
 }
@@ -72,16 +73,9 @@ body {
 }
 
 h1 {
-  color: #003366;
+  color: #005c6e;
   text-align: center;
   margin-bottom: 30px;
-}
-
-h2 {
-  color: #003366;
-  border-bottom: 2px solid #003366;
-  padding-bottom: 5px;
-  margin-top: 30px;
 }
 
 .secao {
