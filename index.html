@@ -4,128 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Centro de Memória FATEC</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 20px;
-      line-height: 1.6;
-    }
-
-    .card-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 30px;
-    }
-
-    .card {
-      width: 250px;
-      /* Reduzido de 300px para 250px */
-      border: 2px solid #005c6e;
-      border-radius: 5px;
-      overflow: hidden;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      margin-bottom: 30px;
-      /* Adiciona margem inferior */
-    }
-
-    .card-image-container {
-      padding: 10px 15px 5px 15px; /* Reduzido o padding inferior de 15px para 5px */
-}
-
-    .card-image {
-      width: 100%;
-      height: auto;
-      display: block;
-      object-fit: cover;
-    }
-
-    .card-content {
-      padding: 0px 12px 12px 12px;
-      /* Reduzido de 15px para 12px */
-    }
-
-    .card-title {
-      color: #005c6e;
-      font-size: 20px;
-      border-radius: 25px;
-      /* Reduzido de 24px para 20px */
-      margin-bottom: 8px;
-      /* Reduzido de 10px para 8px */
-      text-align: center;
-    }
-
-    .card-text {
-      margin-bottom: 8px;
-      color: #333;
-      font-size: 14px;
-      line-height: 1.4;
-      overflow-wrap: break-word;
-      word-wrap: break-word;
-    }
-
-    .saiba-mais {
-      display: block;
-      width: 90px;
-      /* Reduzido de 100px para 90px */
-      background-color: #005c6e;
-      color: white;
-      text-align: center;
-      padding: 6px 8px;
-      /* Reduzido de 8px 10px para 6px 8px */
-      border-radius: 5px;
-      text-decoration: none;
-      margin-left: auto;
-      font-size: 14px;
-      /* Adicionado tamanho de fonte menor */
-    }
-
-    .saiba-mais:hover {
-      opacity: 0.9;
-    }
-
-    h1 {
-      color: #003366;
-      text-align: center;
-      margin-bottom: 30px;
-    }
-
-    h2 {
-      color: #003366;
-      border-bottom: 2px solid #003366;
-      padding-bottom: 5px;
-      margin-top: 30px;
-    }
-
-    .secao {
-      background-color: #f5f5f5;
-      padding: 15px;
-      border-radius: 5px;
-      margin-bottom: 15px;
-    }
-
-    .documento,
-    .entrevista,
-    .catalogo {
-      background-color: #f0f8ff;
-      padding: 10px;
-      margin-bottom: 10px;
-      border-radius: 5px;
-      border-left: 4px solid #003366;
-    }
-
-    a {
-      color: #0066cc;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
+  <link rel="stylesheet" href="styles/cards.css">
 </head>
 
 <body>
@@ -144,16 +23,13 @@
   <div id="documentos-container"></div>
 
   <script>
-    // Carregar dados do arquivo JSON local
     fetch('output/centro_memoria_dados.json')
       .then(response => response.json())
       .then(data => {
-        // Preencher o título principal
         if (data.titulo_principal) {
           document.getElementById('titulo-principal').textContent = data.titulo_principal;
         }
 
-        // Preencher as seções
         const secoesContainer = document.getElementById('secoes-container');
         data.secoes.forEach(secao => {
           const secaoDiv = document.createElement('div');
@@ -165,10 +41,7 @@
           secoesContainer.appendChild(secaoDiv);
         });
 
-        // Preencher as entrevistas
         const entrevistasContainer = document.getElementById('entrevistas-container');
-
-        // Primeiro adicionar a entrevista do Fernando Masanori
         const entrevistaMasanori = document.createElement('div');
         entrevistaMasanori.className = 'card';
         entrevistaMasanori.innerHTML = `
@@ -182,13 +55,10 @@
   </div>
 `;
         entrevistasContainer.appendChild(entrevistaMasanori);
-
-        // Adicionar espaçamento para o próximo item
         const espacamento = document.createElement('div');
         espacamento.style.marginBottom = '30px';
         entrevistasContainer.appendChild(espacamento);
 
-        // Adicionar as outras entrevistas (exceto a do Masanori)
         data.entrevistas.forEach(entrevista => {
           if (!entrevista.titulo.includes('Fernando Masanori')) {
             const entrevistaDiv = document.createElement('div');
@@ -201,7 +71,6 @@
           }
         });
 
-        // Preencher os catálogos
         const catalogosContainer = document.getElementById('catalogos-container');
         data.catalogos.forEach(catalogo => {
           const catalogoDiv = document.createElement('div');
@@ -213,7 +82,6 @@
           catalogosContainer.appendChild(catalogoDiv);
         });
 
-        // Preencher outros documentos
         const documentosContainer = document.getElementById('documentos-container');
         data.documentos.forEach(documento => {
           const documentoDiv = document.createElement('div');
