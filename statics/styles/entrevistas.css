@@ -1,0 +1,104 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: white;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+section {
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    background-color: #b20000;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+}
+
+nav ul {
+    display: flex;
+}
+
+nav ul li a {
+    margin: 30px;
+    font-family: Exo, sans-serif;
+    color: rgb(2, 37, 70);
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.active {
+    font-weight: bold;
+    color: hsla(0, 0%, 100%, .55);;
+    font-size: 25px;
+    padding-right: .5rem;
+    padding-left: .5rem;
+}
+
+.conteudo {
+    text-align: center;
+    align-items: center;
+    color: #005C6E;
+}
+
+.conteudo .sobre-pagina {
+    background-color: #7A96AF;
+    font-weight: 500;
+    align-items: center;
+    text-align: center;
+    color: black;
+    font-size: 40px;
+    width: 87%;
+    margin-left: 79px;
+}
+
+.professores
+{
+    background-color: black;
+    height: 519px;
+    width: 95%;
+    margin-left: 39px;
+}
+
+.imagens
+{
+    justify-content: space-between;
+    justify-items: center;
+    align-items: center;
+    margin-left: 90px;
+    margin-top: 38px;
+}
+
+.entrevistados{
+    background-color: rgb(255, 255, 255);
+    width: 96%;
+    margin-left: 37px;
+    margin-top: 19px;
+}
+
+.navegar
+{
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    font-size: 25px;
+    padding-right: .5rem;
+    padding-left: .5rem;
+}
