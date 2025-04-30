@@ -16,6 +16,45 @@
   <h2>Entrevistas</h2>
   <div id="entrevistas-container"></div>
 
+  <h2>Personalidades e Locais Importantes</h2>
+  <div class="card-container">
+    <!-- Card Masanori -->
+    <div class="card">
+      <div class="card-image-container">
+        <img src="statics/imgs/pessoas/masanori.jpg" alt="Fernando Masanori" class="card-image">
+      </div>
+      <div class="card-content">
+        <h3 class="card-title">Fernando Masanori</h3>
+        <p class="card-text">A entrevista com o Prof. Fernando Masanori revela uma trajetória inspiradora. Da infância desafiadora à formação em Computação na USP e mestrado no ITA, ele compartilha vivências como o burnout, o cuidado com o pai doente e sua atuação na FATEC São José dos Campos. Entre desafios e conquistas destaca-se seu compromisso com a educação transformadora e a inovação.</p>
+        <a href="docs/Prof. Masanori.pdf" class="saiba-mais" target="_blank">Saiba +</a>
+      </div>
+    </div>
+
+    <!-- Card Parque Tecnológico -->
+    <div class="card">
+      <div class="card-image-container">
+        <img src="statics/imgs/pictures/parqueTecnologico.png" alt="Parque Tecnológico" class="card-image">
+      </div>
+      <div class="card-content">
+        <h3 class="card-title">Parque Tecnológico</h3>
+        <p class="card-text">O Parque Tecnológico São José dos Campos foi instituído pelo Decreto Municipal nº 12.367/2006</p>
+        <a href="#" class="saiba-mais">Saiba +</a>
+      </div>
+    </div>
+
+    <!-- Card Prof. Jessen Vidal -->
+    <div class="card">
+      <div class="card-image-container">
+        <img src="statics/imgs/pessoas/vidal.png" alt="Professor Jessen Vidal" class="card-image">
+      </div>
+      <div class="card-content">
+        <h3 class="card-title">Prof. Jessen Vidal</h3>
+        <p class="card-text">biografia</p>
+        <a href="#" class="saiba-mais">Saiba +</a>
+      </div>
+    </div>
+  </div>
+
   <h2>Catálogos</h2>
   <div id="catalogos-container"></div>
 
@@ -39,36 +78,6 @@
             <p>${secao.conteudo}</p>
           `;
           secoesContainer.appendChild(secaoDiv);
-        });
-
-        const entrevistasContainer = document.getElementById('entrevistas-container');
-        const entrevistaMasanori = document.createElement('div');
-        entrevistaMasanori.className = 'card';
-        entrevistaMasanori.innerHTML = `
-  <div class="card-image-container">
-    <img src="statics/imgs/pessoas/masanori.jpg" alt="Fernando Masanori" class="card-image">
-  </div>
-  <div class="card-content">
-    <h3 class="card-title">Fernando Masanori</h3>
-    <p class="card-text">A entrevista com o Prof. Fernando Masanori revela uma trajetória inspiradora. Da infância desafiadora à formação em Computação na USP e mestrado no ITA, ele compartilha vivências como o burnout, o cuidado com o pai doente e sua atuação na FATEC São José dos Campos. Entre desafios e conquistas destaca-se seu compromisso com a educação transformadora e a inovação.</p>
-    <a href="docs/Prof. Masanori.pdf" class="saiba-mais" target="_blank">Saiba +</a>
-  </div>
-`;
-        entrevistasContainer.appendChild(entrevistaMasanori);
-        const espacamento = document.createElement('div');
-        espacamento.style.marginBottom = '30px';
-        entrevistasContainer.appendChild(espacamento);
-
-        data.entrevistas.forEach(entrevista => {
-          if (!entrevista.titulo.includes('Fernando Masanori')) {
-            const entrevistaDiv = document.createElement('div');
-            entrevistaDiv.className = 'entrevista';
-            entrevistaDiv.innerHTML = `
-      <h4>${entrevista.titulo}</h4>
-      <a href="${entrevista.url}" target="_blank">Acessar entrevista</a>
-    `;
-            entrevistasContainer.appendChild(entrevistaDiv);
-          }
         });
 
         const catalogosContainer = document.getElementById('catalogos-container');
