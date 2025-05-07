@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Centro de Memória FATEC</title>
   <link rel="stylesheet" href="statics/styles/cards.css">
+  <link rel="stylesheet" href="statics/styles/information.css">
 </head>
 
 <body>
@@ -25,7 +26,7 @@
         </div>
       </article>
 
-      <article class="card"> <!-- substitui o breve histórico -->
+      <article class="card">
         <div class="card-image-container">
           <img src="statics/imgs/pictures/fatec centro memoria.jpg" alt="Centro de Memórias" class="card-image" loading="lazy">
         </div>
@@ -36,7 +37,7 @@
         </div>
       </article>
 
-      <article class="card"> <!-- video -->
+      <article class="card">
         <div class="card-image-container">
           <video controls class="card-image" loading="lazy">
             <source src="statics/videos/apresentacao.mp4" type="video/mp4">
@@ -44,7 +45,7 @@
           </video>
         </div>
         <div class="card-content">
-          <h3 class="card-title">Centro de Memórias </h3>
+          <h3 class="card-title">Centro de Memórias</h3>
           <p class="card-text">Video Apresentação do Centro de Memórias</p>
           <a href="#" class="saiba-mais">Saiba +</a>
         </div>
@@ -57,7 +58,7 @@
         <div class="card-content">
           <h3 class="card-title">Prof. Jessen Vidal</h3>
           <p class="card-text">Jessen Vidal (1930-2007) foi um engenheiro mecânico e professor universitário, e sua contribuição para a educação técnica e tecnológica em São José dos Campos é reconhecida pela atribuição de seu nome à Fatec local.</p>
-          <a href="#" class="saiba-mais">Saiba +</a>
+          <a href="#" class="saiba-mais" data-id="jessen-vidal">Saiba +</a>
         </div>
       </article>
     </section>
@@ -153,6 +154,11 @@
         </div>
       </article>
     </section>
+    
+    <section id="informacoes-detalhadas" style="display: none;">
+    </section>
   </main>
+  
+  <script src="statics/js/script.js"></script>
 </body>
 </html>
