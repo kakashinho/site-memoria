@@ -14,6 +14,18 @@ document.addEventListener('DOMContentLoaded', function() {
           <p>https://www.al.sp.gov.br/noticia/?id=262504</p>
         </div>
       `,
+    },
+    'video-centro-memorias': {
+      titulo: 'Vídeo de Apresentação do Centro de Memórias',
+      conteudo: `
+        <div class="video-container" style="max-width: 800px; margin: 0 auto;">
+          <video controls width="100%">
+            <source src="/site-memoria/statics/video/centro_memorias.mp4" type="video/mp4">
+            Seu navegador não suporta vídeos HTML5.
+          </video>
+        </div>
+        <p>Este vídeo apresenta o Centro de Memórias da FATEC São José dos Campos, criado para preservar a história da instituição e promover ações culturais ligadas à educação tecnológica.</p>
+      `,
     }
   };
 
