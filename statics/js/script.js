@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         <div class="video-container">
           <video controls width="100%">
-            <source src="statics/video/centro_memorias.mp4" type="video/mp4">
+            <source src="statics/video/CENTRO DE MEMÓRIA.mp4" type="video/mp4">
             Seu navegador não suporta a reprodução de vídeos.
           </video>
         </div>
