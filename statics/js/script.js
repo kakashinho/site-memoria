@@ -1,22 +1,19 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // Acessando todos os elementos que possuem ID no HTML
   
-  // 1. Título principal
   const tituloPrincipal = document.getElementById('titulo-principal');
   if (tituloPrincipal) {
     console.log('Título principal encontrado:', tituloPrincipal.textContent);
-    // Exemplo de manipulação: adicionar um evento de clique
     tituloPrincipal.addEventListener('click', function() {
       alert('Bem-vindo ao Centro de Memória FATEC!');
     });
   }
   
-  // 2. Seção de informações detalhadas
+  
   const secaoInformacoes = document.getElementById('informacoes-detalhadas');
   if (secaoInformacoes) {
     console.log('Seção de informações detalhadas encontrada');
     
-    // Função para mostrar informações detalhadas
+   
     window.mostrarInformacoes = function(infoId, detalhesInfo) {
       if (detalhesInfo[infoId]) {
         secaoInformacoes.innerHTML = `
@@ -34,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
         secaoInformacoes.style.display = 'block';
         secaoInformacoes.scrollIntoView({ behavior: 'smooth' });
         
-        // 3. Botão de fechar (criado dinamicamente)
+      
         const botaoFechar = document.getElementById('fechar-info');
         if (botaoFechar) {
           console.log('Botão de fechar encontrado');
@@ -46,10 +43,10 @@ document.addEventListener('DOMContentLoaded', function() {
     };
   }
   
-  // Configurando os links de "Saiba +" para usar o sistema de IDs
+  
   const saibaMaisLinks = document.querySelectorAll('.saiba-mais');
   
-  // Objeto com informações detalhadas para cada ID
+  
   const detalhesInfo = {
     'fatec-sjc': {
       titulo: 'FATEC São José dos Campos',
@@ -58,6 +55,13 @@ document.addEventListener('DOMContentLoaded', function() {
         <p>A Fatec São José dos Campos - Prof. Jessen Vidal foi criada em 2 de março de 2006. É uma faculdade pública estadual que oferece cursos superiores de tecnologia gratuitos.</p>
         <p>A instituição é mantida pelo Centro Paula Souza, autarquia do Governo do Estado de São Paulo vinculada à Secretaria de Desenvolvimento Econômico, Ciência, Tecnologia e Inovação.</p>
         <p>Localizada no Parque Tecnológico de São José dos Campos, a Fatec está inserida em um ambiente de inovação e desenvolvimento tecnológico, o que proporciona aos alunos contato direto com empresas e instituições de pesquisa.</p>
+
+        <div class="video-container">
+          <video controls width="100%">
+            <source src="statics/video/centro_memorias.mp4" type="video/mp4">
+            Seu navegador não suporta a reprodução de vídeos.
+          </video>
+        </div>
       `
     },
     'centro-memorias': {
@@ -75,9 +79,9 @@ document.addEventListener('DOMContentLoaded', function() {
     <p>O Prof. Jessen Vidal nasceu no município pernambucano de Guaranhuns, em 21 de novembro de 1930, filho de Sólon Vidal e Katy Leitão Vidal. Na infância e adolescência frequentou o Colégio Presbiteriano XV de Novembro de Guaranhuns e em 1950 veio para São José dos Campos para estudar no Instituto Tecnológico de Aeronáutica (ITA).</p>
     <p>Se formou Engenheiro Aeronáutico no ano de 1956, no ano de 1965, tirou o mestrado no ITA e em 1971 o doutorado na UNESP. Foi Professor Titular da Divisão de Aeronáutica do ITA, Professor Associado da Faculdade de Engenharia Mauá de 1965 a 1970. Reitor do ITA, de 1977 a 1982 e de 1989 a 1994 e Professor Titular e Diretor da Faculdade de Engenharia de Guaratinguetá, da UNESP.</p>
     <p>Foi membro do Conselho Deliberativo da FATEC de 1979 a 1981 e do Conselho Estadual de Educação de 1981 a 1984 e Secretário da Educação do Estado de São Paulo entre 1982 e 1983. Foi também conselheiro do CREA entre 1967 a 1971 e participou do conselho da FUNCATE no período de 1996 a 2007.</p>
-    <p><a href="http://www.aeitaonline.com.br/wiki/index.php?title=Jessen_Vidal" target="_blank" class="jessen-link">Referencias</a></p>
-    <p><a href="https://www.al.sp.gov.br/repositorio/legislacao/lei/2009/lei-13875-16.12.2009.html" target="_blank" class="jessen-link">Referencias</a></p>
-    <p><a href="https://www.al.sp.gov.br/noticia/?id=262504" target="_blank" class="jessen-link">Referencias</a></p>
+    <p><a href="http://www.aeitaonline.com.br/wiki/index.php?title=Jessen_Vidal" target="_blank" class="jessen-link">Wikpedia</a></p>
+    <p><a href="https://www.al.sp.gov.br/repositorio/legislacao/lei/2009/lei-13875-16.12.2009.html" target="_blank" class="jessen-link">Ficha Informativa - Assembleia Legislativa do Estado de São Paulo</a></p>
+    <p><a href="https://www.al.sp.gov.br/noticia/?id=262504" target="_blank" class="jessen-link">Homenagem - Assembleia Legislativa do Estado de São Paulo</a></p>
   `
 },
     'parque-tecnologico': {
@@ -122,14 +126,14 @@ document.addEventListener('DOMContentLoaded', function() {
       if (!this.getAttribute('target')) {
         e.preventDefault();
         
-        // Verificar se o link tem um data-id
+        
         let infoId = this.getAttribute('data-id');
         
         if (!infoId) {
           const cardElement = this.closest('.card');
           const cardTitle = cardElement.querySelector('.card-title').textContent.trim();
           
-          // Atribuir um ID com base no título do card
+          
           if (cardTitle.includes('EMB- 120')) {
             infoId = 'emb-120';
           } else if (cardTitle.includes('Guri na Fatec')) {
