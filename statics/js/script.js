@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Verificar se o link tem um data-id
         let infoId = this.getAttribute('data-id');
         
-        // Se não tiver data-id, tentar identificar pelo título do card
+       
         if (!infoId) {
           const cardElement = this.closest('.card');
           const cardTitle = cardElement.querySelector('.card-title').textContent.trim();
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
           }
         }
         
-        // Se tiver informações para mostrar
+        
         if (infoId && detalhesInfo[infoId]) {
           secaoInformacoes.innerHTML = `
             <div class="info-container">
