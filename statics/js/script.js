@@ -80,8 +80,8 @@ document.addEventListener('DOMContentLoaded', function () {
       `
     },
 
-  'jessen-vidal': {
-    titulo: 'Quem foi Jessen Vidal?',
+    'jessen-vidal': {
+      titulo: 'Quem foi Jessen Vidal?',
       conteudo: `
     <img src="statics/imgs/pessoas/jessenVidal.jpg" alt="Professor Jessen Vidal" class="info-image">
     <p>O Prof. Jessen Vidal nasceu no município pernambucano de Guaranhuns, em 21 de novembro de 1930, filho de Sólon Vidal e Katy Leitão Vidal. Na infância e adolescência frequentou o Colégio Presbiteriano XV de Novembro de Guaranhuns e em 1950 veio para São José dos Campos para estudar no Instituto Tecnológico de Aeronáutica (ITA).</p>
@@ -91,73 +91,82 @@ document.addEventListener('DOMContentLoaded', function () {
     <p><a href="https://www.al.sp.gov.br/repositorio/legislacao/lei/2009/lei-13875-16.12.2009.html" target="_blank" class="jessen-link">Ficha Informativa - Assembleia Legislativa do Estado de São Paulo</a></p>
     <p><a href="https://www.al.sp.gov.br/noticia/?id=262504" target="_blank" class="jessen-link">Homenagem - Assembleia Legislativa do Estado de São Paulo</a></p>
   `
-  },
-  'parque-tecnologico': {
-    titulo: 'Parque Tecnológico de São José dos Campos',
+    },
+    'parque-tecnologico': {
+      titulo: 'Parque Tecnológico de São José dos Campos',
       conteudo: `
         <img src="statics/imgs/pictures/parqueTecnologico.png" alt="Parque Tecnológico" class="info-image">
         <p>O Parque Tecnológico São José dos Campos foi instituído pelo Decreto Municipal nº 12.367/2006, sendo um ambiente de inovação que abriga empresas de tecnologia, centros de pesquisa e instituições de ensino.</p>
         <p>A FATEC São José dos Campos está localizada dentro do Parque Tecnológico, o que proporciona aos alunos e professores um ambiente privilegiado para o desenvolvimento de projetos e pesquisas em parceria com empresas e instituições.</p>
         <p><a href="https://beacons.ai/pitsjc" target="_blank" class="parque-link">Visite o site do Parque Tecnológico</a></p>
       `
-  },
-  'cesar-lattes': {
-    titulo: 'Quem foi Cesare Lattes?',
+    },
+    'cesar-lattes': {
+      titulo: 'Quem foi Cesare Lattes?',
       conteudo: `
         <img src="statics/imgs/pessoas/lattes.jpg" alt="César Lattes" class="info-image">
         <p>Cesar Lattes (1924-2005) foi um físico brasileiro, considerado um dos cientistas mais importantes do país. Formou-se em física e matemática pela Universidade de São Paulo (USP).</p>
         <p>Seu trabalho mais conhecido foi a descoberta do méson pi (ou píon), uma partícula subatômica, realizada em 1947 quando tinha apenas 23 anos. Esta descoberta foi fundamental para o avanço da física nuclear e de partículas.</p>
         <p>Em sua homenagem, foi criada a Plataforma Lattes, sistema de currículos acadêmicos mantido pelo CNPq que se tornou padrão nacional para o registro da vida acadêmica de estudantes e pesquisadores do Brasil.</p>
       `
-  },
-  'paula-souza': {
-    titulo: 'Quem foi Paula Souza?',
+    },
+    'paula-souza': {
+      titulo: 'Quem foi Paula Souza?',
       conteudo: `
         <img src="statics/imgs/pessoas/souza.png" alt="Paula Souza" class="info-image">
         <p>Antônio Francisco de Paula Souza (1843-1917) foi um engenheiro e político brasileiro, formado na Europa. Destacou-se pela contribuição à educação técnica no país, tendo sido o fundador da Escola Politécnica de São Paulo (atual Poli-USP).</p>
         <p>Foi diretor da instituição por 24 anos e defendeu uma educação técnica voltada ao desenvolvimento nacional. Seu legado inspirou a criação do Centro Estadual de Educação Tecnológica Paula Souza (CEETEPS) em 1969, instituição que administra as FATECs e ETECs do estado de São Paulo.</p>
       `
-  },
-  'baja': {
-    titulo: 'Projeto BAJA SAE BRASIL',
+    },
+    'baja': {
+      titulo: 'Projeto BAJA SAE BRASIL',
       conteudo: `
         <img src="statics/imgs/pictures/BAJA.jpeg" alt="BAJA" class="info-image">
         <p>O Projeto Baja SAE é desenvolvido por alunos de diversos cursos, principalmente Engenharia, com o objetivo de aplicar os conhecimentos teóricos em um projeto prático: projetar, construir e testar um veículo off-road.</p>
         <p>As equipes participam de competições nacionais e internacionais, onde são avaliadas em diversos aspectos, desde o projeto até o desempenho do veículo em provas dinâmicas e de resistência.</p>
         <p>Na FATEC São José dos Campos, o projeto Baja proporciona aos alunos a oportunidade de desenvolver habilidades técnicas e de gestão, trabalhando em equipe e aplicando conhecimentos de diversas áreas.</p>
       `
-  }
-};
+    }
+  };
 
-saibaMaisLinks.forEach(link => {
-  link.addEventListener('click', function (e) {
-    if (!this.getAttribute('target')) {
-      e.preventDefault();
-
-
-      let infoId = this.getAttribute('data-id');
-
-      if (!infoId) {
-        const cardElement = this.closest('.card');
-        const cardTitle = cardElement.querySelector('.card-title').textContent.trim();
+  saibaMaisLinks.forEach(link => {
+    link.addEventListener('click', function (e) {
+      if (!this.getAttribute('target')) {
+        e.preventDefault();
 
 
-        if (cardTitle.includes('EMB- 120')) {
-          infoId = 'emb-120';
-        } else if (cardTitle.includes('Guri na Fatec')) {
-          infoId = 'guri';
-        } else if (cardTitle.includes('Catálogos dos Laboratórios')) {
-          infoId = 'laboratorios';
+        let infoId = this.getAttribute('data-id');
+
+        if (infoId === 'entrevistas') {
+          window.location.href = 'templates/individuais/entrevistas.html';
+          return;
+        }
+
+        if (infoId === 'aeronaves') {
+          window.location.href = 'templates/individuais/aeronaves.html';
+          return;
+        }
+
+        if (!infoId) {
+          const cardElement = this.closest('.card');
+          const cardTitle = cardElement.querySelector('.card-title').textContent.trim();
+
+          if (cardTitle.includes('EMB- 120')) {
+            infoId = 'emb-120';
+          } else if (cardTitle.includes('Guri na Fatec')) {
+            infoId = 'guri';
+          } else if (cardTitle.includes('Catálogos dos Laboratórios')) {
+            infoId = 'laboratorios';
+          }
+        }
+
+        if (infoId && detalhesInfo[infoId]) {
+          window.mostrarInformacoes(infoId, detalhesInfo);
+        } else {
+          console.log('Informações para o ID:', infoId, 'não encontradas');
+          alert('Informações não disponíveis no momento. Em breve teremos mais conteúdo!');
         }
       }
-
-      if (infoId && detalhesInfo[infoId]) {
-        window.mostrarInformacoes(infoId, detalhesInfo);
-      } else {
-        console.log('Informações para o ID:', infoId, 'não encontradas');
-        alert('Informações não disponíveis no momento. Em breve teremos mais conteúdo!');
-      }
-    }
+    });
   });
-});
 });
