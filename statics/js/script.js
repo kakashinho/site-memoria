@@ -68,8 +68,8 @@ document.addEventListener('DOMContentLoaded', function () {
       `
     },
 
-    'video-centro-memoria': {
-      titulo: 'Vídeo do Centro de Memória',
+    'video-centro-memorias': {
+      titulo: 'Vídeo do Centro de Memórias',
       conteudo: `
         <div class="video-container">
           <video controls width="100%">
