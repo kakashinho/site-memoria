@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
       conteudo: `
         <div class="video-container">
           <video controls width="100%">
-            <source src="statics/video/CENTRO DE MEMÓRIA.mp4" type="video/mp4">
+            <source src="statics/video/video centro de memoria.mp4" type="video/mp4">
             Seu navegador não suporta a reprodução de vídeos.
           </video>
         </div>
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function () {
     <p>O Prof. Jessen Vidal nasceu no município pernambucano de Guaranhuns, em 21 de novembro de 1930, filho de Sólon Vidal e Katy Leitão Vidal. Na infância e adolescência frequentou o Colégio Presbiteriano XV de Novembro de Guaranhuns e em 1950 veio para São José dos Campos para estudar no Instituto Tecnológico de Aeronáutica (ITA).</p>
     <p>Se formou Engenheiro Aeronáutico no ano de 1956, no ano de 1965, tirou o mestrado no ITA e em 1971 o doutorado na UNESP. Foi Professor Titular da Divisão de Aeronáutica do ITA, Professor Associado da Faculdade de Engenharia Mauá de 1965 a 1970. Reitor do ITA, de 1977 a 1982 e de 1989 a 1994 e Professor Titular e Diretor da Faculdade de Engenharia de Guaratinguetá, da UNESP.</p>
     <p>Foi membro do Conselho Deliberativo da FATEC de 1979 a 1981 e do Conselho Estadual de Educação de 1981 a 1984 e Secretário da Educação do Estado de São Paulo entre 1982 e 1983. Foi também conselheiro do CREA entre 1967 a 1971 e participou do conselho da FUNCATE no período de 1996 a 2007.</p>
-    <p><a href="http://www.aeitaonline.com.br/wiki/index.php?title=Jessen_Vidal" target="_blank" class="jessen-link">Wikpedia</a></p>
+    <p><a href="http://www.aeitaonline.com.br/wiki/index.php?title=Jessen_Vidal" target="_blank" class="jessen-link">Wikepedia</a></p>
     <p><a href="https://www.al.sp.gov.br/repositorio/legislacao/lei/2009/lei-13875-16.12.2009.html" target="_blank" class="jessen-link">Ficha Informativa - Assembleia Legislativa do Estado de São Paulo</a></p>
     <p><a href="https://www.al.sp.gov.br/noticia/?id=262504" target="_blank" class="jessen-link">Homenagem - Assembleia Legislativa do Estado de São Paulo</a></p>
   `
