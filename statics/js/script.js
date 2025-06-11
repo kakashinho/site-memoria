@@ -60,6 +60,40 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const detalhesInfo = {
 
+    'eventos-programas': {
+      titulo: 'Eventos e Programas da Fatec',
+      conteudo: `
+    <div class="card-container">
+      <article class="card">
+        <div class="card-image-container">
+          <img src="statics/imgs/pictures/BAJA.jpeg" alt="BAJA" class="card-image" loading="lazy">
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">BAJA SAE BRASIL</h3>
+          <p class="card-text">O Projeto Baja é desenvolvido por alunos dos cursos de Engenharia e Física, entre outros,
+            no intuito de aplicar os conceitos aprendidos em sala de aula para projetar, construir e desenvolver um
+            protótipo no estilo off-road para competir entre as equipes.</p>
+          <a href="#" class="saiba-mais" data-id="baja">Saiba +</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-image-container">
+          <img src="statics/imgs/pictures/EMB-120/EMB-120.png" alt="EMB-120" class="card-image" loading="lazy">
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">Aeronaves</h3>
+          <p class="card-text">Informações sobre as aeronaves utilizadas na FATEC para fins didáticos e de pesquisa.
+            Nossa coleção inclui desde aeronave Guri, doada pela ANAC, até estudos detalhados sobre o EMB-120 Brasília
+            da Embraer. Todos os recursos disponíveis foram cuidadosamente catalogados por nossos próprios alunos do
+            Curso de Tecnologia em Manutenção de Aeronaves</p>
+          <a href="#" class="saiba-mais" data-id="aeronaves">Saiba +</a>
+        </div>
+      </article>
+    </div>
+  `
+    },
+
     'nomes-inspiram': {
       titulo: 'Nomes que Inspiram',
       conteudo: `
