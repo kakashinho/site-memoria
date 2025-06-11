@@ -1,22 +1,22 @@
 document.addEventListener('DOMContentLoaded', function () {
 
- const tituloPrincipal = document.getElementById('titulo-principal');
- if (tituloPrincipal) {
-   console.log('Título principal encontrado:', tituloPrincipal.textContent);
-   tituloPrincipal.addEventListener('click', function () {
-     alert('Bem-vindo ao Centro de Memória FATEC!');
-   });
- }
+  const tituloPrincipal = document.getElementById('titulo-principal');
+  if (tituloPrincipal) {
+    console.log('Título principal encontrado:', tituloPrincipal.textContent);
+    tituloPrincipal.addEventListener('click', function () {
+      alert('Bem-vindo ao Centro de Memória FATEC!');
+    });
+  }
 
 
- const secaoInformacoes = document.getElementById('informacoes-detalhadas');
- if (secaoInformacoes) {
-   console.log('Seção de informações detalhadas encontrada');
+  const secaoInformacoes = document.getElementById('informacoes-detalhadas');
+  if (secaoInformacoes) {
+    console.log('Seção de informações detalhadas encontrada');
 
 
-   window.mostrarInformacoes = function (infoId, detalhesInfo) {
-     if (detalhesInfo[infoId]) {
-       secaoInformacoes.innerHTML = `
+    window.mostrarInformacoes = function (infoId, detalhesInfo) {
+      if (detalhesInfo[infoId]) {
+        secaoInformacoes.innerHTML = `
          <div class="info-container">
            <h2 class="info-title">${detalhesInfo[infoId].titulo}</h2>
            <div class="info-content">
@@ -29,39 +29,87 @@ document.addEventListener('DOMContentLoaded', function () {
          </div>
        `;
 
-       secaoInformacoes.style.display = 'block';
-       secaoInformacoes.scrollIntoView({ behavior: 'smooth' });
+        secaoInformacoes.style.display = 'block';
+        secaoInformacoes.scrollIntoView({ behavior: 'smooth' });
 
-       const novosLinks = secaoInformacoes.querySelectorAll('.saiba-mais');
-       novosLinks.forEach(link => {
-         link.addEventListener('click', function (e) {
-           e.preventDefault();
-           const novoId = this.getAttribute('data-id');
-           if (detalhesInfo[novoId]) {
-             window.mostrarInformacoes(novoId, detalhesInfo);
-           }
-         });
-       });
+        const novosLinks = secaoInformacoes.querySelectorAll('.saiba-mais');
+        novosLinks.forEach(link => {
+          link.addEventListener('click', function (e) {
+            e.preventDefault();
+            const novoId = this.getAttribute('data-id');
+            if (detalhesInfo[novoId]) {
+              window.mostrarInformacoes(novoId, detalhesInfo);
+            }
+          });
+        });
 
-       const botaoFechar = document.getElementById('fechar-info');
-       if (botaoFechar) {
-         console.log('Botão de fechar encontrado');
-         botaoFechar.addEventListener('click', function () {
-           secaoInformacoes.style.display = 'none';
-         });
-       }
-     }
-   };
- }
-
-
- const saibaMaisLinks = document.querySelectorAll('.saiba-mais');
+        const botaoFechar = document.getElementById('fechar-info');
+        if (botaoFechar) {
+          console.log('Botão de fechar encontrado');
+          botaoFechar.addEventListener('click', function () {
+            secaoInformacoes.style.display = 'none';
+          });
+        }
+      }
+    };
+  }
 
 
- const detalhesInfo = {
-   'fatec-sjc': {
-     titulo: 'FATEC São José dos Campos',
-     conteudo: `
+  const saibaMaisLinks = document.querySelectorAll('.saiba-mais');
+
+
+  const detalhesInfo = {
+
+    'nomes-inspiram': {
+      titulo: 'Nomes que Inspiram',
+      conteudo: `
+    <div class="card-container">
+      <article class="card">
+        <div class="card-image-container">
+          <img src="statics/imgs/pessoas/lattes.jpg" alt="César Lattes" class="card-image" loading="lazy">
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">Cesare Lattes</h3>
+          <p class="card-text">Cesar Lattes (1924-2005) foi um cientista brasileiro. Estudou física e matemática na
+            Universidade de São Paulo. Com 19 anos era assistente da cadeira de Física Teórica.</p>
+          <a href="#" class="saiba-mais" data-id="cesar-lattes">Saiba +</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-image-container">
+          <img src="statics/imgs/pessoas/jessenVidal.jpg" alt="Professor Jessen Vidal" class="card-image"
+            loading="lazy">
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">Prof. Jessen Vidal</h3>
+          <p class="card-text">Jessen Vidal (1930-2007) foi um engenheiro mecânico e professor universitário, e sua
+            contribuição para a educação técnica e tecnológica em São José dos Campos é reconhecida pela atribuição de
+            seu nome à Fatec local.</p>
+          <a href="#" class="saiba-mais" data-id="jessen-vidal">Saiba +</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-image-container">
+          <img src="statics/imgs/pessoas/souza.png" alt="Paula Souza" class="card-image" loading="lazy">
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">Paula Souza</h3>
+          <p class="card-text">Antônio Francisco de Paula Souza foi engenheiro e político paulista, formado na Europa,
+            que se destacou na construção de ferrovias e na fundação da Escola Politécnica de São Paulo. Atuou como
+            diretor da instituição por 24 anos e defendeu a educação técnica voltada ao desenvolvimento nacional. Seu
+            legado inspirou a criação do Centro Paula Souza em 1969.</p>
+          <a href="#" class="saiba-mais" data-id="paula-souza">Saiba +</a>
+        </div>
+      </article>
+    </div>
+  `
+    },
+
+    'fatec-sjc': {
+      titulo: 'FATEC São José dos Campos',
+      conteudo: `
        <div class="card-container">
          <article class="card">
            <div class="card-image-container">
@@ -91,11 +139,11 @@ document.addEventListener('DOMContentLoaded', function () {
          </article>
        </div>
      `
-   },
+    },
 
-   'centro-memorias': {
-     titulo: 'Centro de Memórias da FATEC',
-     conteudo: `
+    'centro-memorias': {
+      titulo: 'Centro de Memórias da FATEC',
+      conteudo: `
        <img src="statics/imgs/pictures/fatec centro memoria.jpg" alt="Centro de Memórias" class="info-image">
        <p>O Centro de Memórias da FATEC São José dos Campos foi criado pela Portaria 01 de 30/06/2022, com o objetivo de resgatar e preservar a memória da instituição por meio de inventário, acervo e ações culturais ligadas à história da educação tecnológica.</p>
        <p>Este projeto visa documentar a trajetória da instituição, seus professores, alunos e contribuições para o desenvolvimento tecnológico da região.</p>
@@ -117,11 +165,11 @@ document.addEventListener('DOMContentLoaded', function () {
          <p><a href="http://www.memorias.cpscetec.com.br/acervoVer.php?cma=29" target="_blank" class="parque-link">http://www.memorias.cpscetec.com.br/acervoVer.php?cma=29</a></p>
        </div>
      `
-   },
+    },
 
-   'video-centro-memorias': {
-     titulo: 'Vídeo do Centro de Memórias',
-     conteudo: `
+    'video-centro-memorias': {
+      titulo: 'Vídeo do Centro de Memórias',
+      conteudo: `
        <div class="video-container">
          <video controls width="100%">
            <source src="statics/video/video centro de memoria.mp4" type="video/mp4">
@@ -129,11 +177,11 @@ document.addEventListener('DOMContentLoaded', function () {
          </video>
        </div>
      `
-   },
+    },
 
-   'jessen-vidal': {
-     titulo: 'Quem foi Jessen Vidal?',
-     conteudo: `
+    'jessen-vidal': {
+      titulo: 'Quem foi Jessen Vidal?',
+      conteudo: `
    <img src="statics/imgs/pessoas/jessenVidal.jpg" alt="Professor Jessen Vidal" class="info-image">
    <p>O Prof. Jessen Vidal nasceu no município pernambucano de Guaranhuns, em 21 de novembro de 1930, filho de Sólon Vidal e Katy Leitão Vidal. Na infância e adolescência frequentou o Colégio Presbiteriano XV de Novembro de Guaranhuns e em 1950 veio para São José dos Campos para estudar no Instituto Tecnológico de Aeronáutica (ITA).</p>
    <p>Se formou Engenheiro Aeronáutico no ano de 1956, no ano de 1965, tirou o mestrado no ITA e em 1971 o doutorado na UNESP. Foi Professor Titular da Divisão de Aeronáutica do ITA, Professor Associado da Faculdade de Engenharia Mauá de 1965 a 1970. Reitor do ITA, de 1977 a 1982 e de 1989 a 1994 e Professor Titular e Diretor da Faculdade de Engenharia de Guaratinguetá, da UNESP.</p>
@@ -142,19 +190,19 @@ document.addEventListener('DOMContentLoaded', function () {
    <p><a href="https://www.al.sp.gov.br/repositorio/legislacao/lei/2009/lei-13875-16.12.2009.html" target="_blank" class="jessen-link">Ficha Informativa - Assembleia Legislativa do Estado de São Paulo</a></p>
    <p><a href="https://www.al.sp.gov.br/noticia/?id=262504" target="_blank" class="jessen-link">Homenagem - Assembleia Legislativa do Estado de São Paulo</a></p>
  `
-   },
-   'parque-tecnologico': {
-     titulo: 'Parque Tecnológico de São José dos Campos',
-     conteudo: `
+    },
+    'parque-tecnologico': {
+      titulo: 'Parque Tecnológico de São José dos Campos',
+      conteudo: `
        <img src="statics/imgs/pictures/parqueTecnologico.png" alt="Parque Tecnológico" class="info-image">
        <p>O Parque Tecnológico São José dos Campos foi instituído pelo Decreto Municipal nº 12.367/2006, sendo um ambiente de inovação que abriga empresas de tecnologia, centros de pesquisa e instituições de ensino.</p>
        <p>A FATEC São José dos Campos está localizada dentro do Parque Tecnológico, o que proporciona aos alunos e professores um ambiente privilegiado para o desenvolvimento de projetos e pesquisas em parceria com empresas e instituições.</p>
        <p><a href="https://beacons.ai/pitsjc" target="_blank" class="parque-link">Visite o site do Parque Tecnológico</a></p>
      `
-   },
-   'cesar-lattes': {
-     titulo: 'Quem foi Cesare Lattes?',
-     conteudo: `
+    },
+    'cesar-lattes': {
+      titulo: 'Quem foi Cesare Lattes?',
+      conteudo: `
        <img src="statics/imgs/pessoas/lattes.jpg" alt="César Lattes" class="info-image">
        <p>Cesar Lattes (1924-2005) foi um físico brasileiro, considerado um dos cientistas mais importantes do país. Formou-se em física e matemática pela Universidade de São Paulo (USP).</p>
        <p>Seu trabalho mais conhecido foi a descoberta do méson pi (ou píon), uma partícula subatômica, realizada em 1947 quando tinha apenas 23 anos. Esta descoberta foi fundamental para o avanço da física nuclear e de partículas.</p>
@@ -166,10 +214,10 @@ document.addEventListener('DOMContentLoaded', function () {
          <p><a href="https://educacao.uol.com.br/biografias/cesar-lattes.htm" target="_blank" class="jessen-link">https://educacao.uol.com.br/biografias/cesar-lattes.htm</a></p>
        </div>
      `
-   },
-   'paula-souza': {
-     titulo: 'Quem foi Paula Souza?',
-     conteudo: `
+    },
+    'paula-souza': {
+      titulo: 'Quem foi Paula Souza?',
+      conteudo: `
        <img src="statics/imgs/pessoas/souza.png" alt="Paula Souza" class="info-image">
        <p>Antônio Francisco de Paula Souza (1843-1917) foi um engenheiro e político brasileiro, formado na Europa. Destacou-se pela contribuição à educação técnica no país, tendo sido o fundador da Escola Politécnica de São Paulo (atual Poli-USP).</p>
        <p>Foi diretor da instituição por 24 anos e defendeu uma educação técnica voltada ao desenvolvimento nacional. Seu legado inspirou a criação do Centro Estadual de Educação Tecnológica Paula Souza (CEETEPS) em 1969, instituição que administra as FATECs e ETECs do estado de São Paulo.</p>
@@ -179,10 +227,10 @@ document.addEventListener('DOMContentLoaded', function () {
          <p><a href="https://www.cps.sp.gov.br/sobre-o-centro-paula-souza/" target="_blank" class="jessen-link">https://www.cps.sp.gov.br/sobre-o-centro-paula-souza/</a></p>
        </div>
      `
-   },
-   'baja': {
-     titulo: 'Projeto BAJA SAE BRASIL',
-     conteudo: `
+    },
+    'baja': {
+      titulo: 'Projeto BAJA SAE BRASIL',
+      conteudo: `
        <img src="statics/imgs/pictures/BAJA.jpeg" alt="BAJA" class="info-image">
        <p>O Projeto Baja SAE é desenvolvido por alunos de diversos cursos, principalmente Engenharia, com o objetivo de aplicar os conhecimentos teóricos em um projeto prático: projetar, construir e testar um veículo off-road.</p>
        <p>As equipes participam de competições nacionais e internacionais, onde são avaliadas em diversos aspectos, desde o projeto até o desempenho do veículo em provas dinâmicas e de resistência.</p>
@@ -195,10 +243,10 @@ document.addEventListener('DOMContentLoaded', function () {
          <p><a href="https://pt.wikipedia.org/wiki/F%C3%B3rmula_SAE" target="_blank" class="jessen-link">https://pt.wikipedia.org/wiki/F%C3%B3rmula_SAE</a></p>
        </div>
      `
-   },
-   'guri': {
-     titulo: 'A Incorporação da Aeronave AMT-600 Guri à Infraestrutura Didática da FATEC São José dos Campos',
-     conteudo: `
+    },
+    'guri': {
+      titulo: 'A Incorporação da Aeronave AMT-600 Guri à Infraestrutura Didática da FATEC São José dos Campos',
+      conteudo: `
        <img src="../statics/imgs/pictures/GURI/guri(1).jpg" alt="GURI" class="info-image">
        <p>No mês de setembro de 2016, a Faculdade de Tecnologia de São José dos Campos – Prof. Jessen Vidal (FATEC-SJC) integrou oficialmente à sua infraestrutura acadêmica a aeronave AMT-600 Guri, doada pela Agência Nacional de Aviação Civil (ANAC). Esta aquisição representa um avanço significativo na qualificação dos ambientes de aprendizagem voltados ao curso de Tecnologia em Manutenção de Aeronaves, promovendo o aprimoramento das atividades práticas essenciais à formação tecnológica dos discentes.</p>
        <p>A aeronave, fabricada em 2008 pela empresa brasileira AEROMOT, havia sido originalmente adquirida por meio do Projeto de Cooperação Técnica Internacional. Entretanto, após um incidente durante o voo de translado para o Aeroclube do Rio Grande do Sul (ARGS), com apenas três horas de operação, o equipamento permaneceu inoperante e estacionado por vários anos.</p>
@@ -209,10 +257,10 @@ document.addEventListener('DOMContentLoaded', function () {
          <p>Prof. Felix Strottmann – Coordenador do Curso de Tecnologia em Manutenção de Aeronaves - FATEC – Faculdade de São José dos Campos – Prof. Jessen Vidal – 21/Setembro/2016.</p>
        </div>
      `,
-   },
-   'brasilia': {
-     titulo: 'EMB-120 Brasília: Desenvolvimento, Impacto e Legado da Aviação Regional Brasileira',
-     conteudo: `
+    },
+    'brasilia': {
+      titulo: 'EMB-120 Brasília: Desenvolvimento, Impacto e Legado da Aviação Regional Brasileira',
+      conteudo: `
        <img src="../statics/imgs/pictures/EMB-120/EMB-120(5).png" alt="EMB-120" class="info-image">
        <p>O EMB-120 Brasília representa um dos marcos mais relevantes da indústria aeronáutica brasileira. Desenvolvido pela Embraer no início da década de 1980, o modelo foi concebido para atender ao mercado regional com uma aeronave turboélice pressurizada, eficiente e de alta confiabilidade. Com capacidade para 30 passageiros, a aeronave é equipada com dois motores Pratt & Whitney Canada PW118A, alcançando velocidades superiores a 580 km/h e operando a altitudes de até 25 mil pés.</p>
        <p>O desenvolvimento do EMB-120 teve como base o programa EMB-12X, que previa uma família de aeronaves com fuselagem comum em diferentes configurações. Embora apenas o EMB-121 Xingu tenha sido efetivamente fabricado inicialmente, a crescente demanda por transporte regional impulsionou a criação do Brasília, cujo primeiro voo ocorreu em julho de 1983. A Embraer adotou sistemas avançados para a época, como o EFIS, e rapidamente conquistou certificações internacionais, o que permitiu sua comercialização em diversos países.</p>
@@ -226,10 +274,10 @@ document.addEventListener('DOMContentLoaded', function () {
          <p>Prof. Felix A. Strottmann - FATEC</p>
        </div>
      `,
-   },
-   'helicoptero': {
-     titulo: 'Evolução e Contribuições do Laboratório de Asas Rotativas e Drones da FATEC-SJC para a Formação Tecnológica em Aviação',
-     conteudo: `
+    },
+    'helicoptero': {
+      titulo: 'Evolução e Contribuições do Laboratório de Asas Rotativas e Drones da FATEC-SJC para a Formação Tecnológica em Aviação',
+      conteudo: `
        <img src="../statics/imgs/pictures/Laboratorio/galpao.png" alt="Laboratórios" class="info-image">
        <p>O Laboratório de Asas Rotativas e Drones da FATEC São José dos Campos – Prof. Jessen Vidal tem desempenhado um papel estratégico na formação prática e tecnológica de estudantes dos cursos da área aeronáutica. Desde sua criação, a infraestrutura do laboratório tem evoluído continuamente com a aquisição e integração de componentes reais de helicópteros, simulações estruturais e desenvolvimento de projetos de engenharia, com foco em asas rotativas e sistemas não tripulados.</p>
        <p>As atividades tiveram início em 2016 com a incorporação de partes de aeronaves como o rotor do Schweizer 300 CB, Pantera AS 365K, Esquilo AS 350B e trem de pouso auxiliar do Pantera AS356, muitos deles adquiridos em parceria com a empresa Brascopter Projetos Aeronáuticos e Mecânicos Ltda.</p>
@@ -239,10 +287,10 @@ document.addEventListener('DOMContentLoaded', function () {
        <p>Além disso, destaca-se o projeto conceitual do Alpha One, futuro simulador de voo voltado a asas rotativas, indicando a continuidade das inovações tecnológicas previstas para o laboratório.</p>
        <p>A trajetória do Laboratório de Asas Rotativas e Drones da FATEC-SJC revela um ecossistema acadêmico inovador, orientado para o aprendizado baseado em projetos reais e aplicação direta de conhecimentos de engenharia, contribuindo significativamente para a qualificação de mão de obra especializada no setor aeronáutico nacional.</p>
      `,
-   },
-   'masanori': {
-     titulo: 'Entrevista com o Professor Fernando Masanori (22/11/2024)',
-     conteudo: `
+    },
+    'masanori': {
+      titulo: 'Entrevista com o Professor Fernando Masanori (22/11/2024)',
+      conteudo: `
        <img src="../statics/imgs/pessoas/masanori/masanori7.jpeg" alt="Masanori" class="info-image">
        <p>Fernando Masanori nasceu em 1º de setembro de 1964, em São Paulo. De origem japonesa, teve uma infância marcada por dificuldades financeiras, especialmente após a separação dos pais e a falência do negócio do pai. Desde cedo, trabalhou para ajudar a sustentar a família e, com a ajuda de uma prima, conseguiu cursar o pré-vestibular e ingressar na USP, onde se formou em Ciências da Computação em 1988. O contato com o Opus Dei durante a graduação teve grande influência em sua formação ética e pessoal.</p>
        <p>Profissionalmente, Masanori teve uma carreira sólida em grandes empresas como Itaú, Mastercard e PwC. Entretanto, após um episódio de burnout, decidiu mudar de rumo: mudou-se para São José dos Campos, fez mestrado no ITA e iniciou um doutorado, que precisou interromper em 2005 para cuidar do pai doente. Após essa fase difícil, voltou-se para a docência, mantendo-se ainda ativo no mercado, especialmente em pesquisa computacional na UNIVAP.</p>
@@ -251,10 +299,10 @@ document.addEventListener('DOMContentLoaded', function () {
        <p>Durante a pandemia, Masanori teve contato precoce com os impactos da COVID-19, ao manter comunicação com ex-alunos que moravam na China. A FATEC se destacou pela rápida adaptação ao ensino remoto, preservando o vínculo com os alunos e oferecendo suporte emocional essencial em tempos de isolamento. Ele destaca que a pandemia evidenciou a importância da faculdade não só como transmissora de conteúdo, mas também como rede de apoio social.</p>
        <p>O professor vê na FATEC um espaço de transformação real, com inúmeros ex-alunos hoje atuando em empresas como Facebook, Oracle, IBM e startups regionais. Ressalta a importância de manter o sentimento de pertencimento que marcou os primeiros anos da unidade, quando alunos e professores formavam uma comunidade próxima, capaz de realizar eventos de forma autônoma e engajada. Mesmo com o crescimento da instituição, acredita ser essencial preservar esses valores e continuar promovendo impacto na sociedade.</p>
      `,
-   },
-   'arakaki': {
-     titulo: 'Resumo da Entrevista com o Professor Reinaldo Gen Ichiro Arakaki (30/03/2025)',
-     conteudo: `
+    },
+    'arakaki': {
+      titulo: 'Resumo da Entrevista com o Professor Reinaldo Gen Ichiro Arakaki (30/03/2025)',
+      conteudo: `
        <img src="../statics/imgs/pessoas/arakaki/arakaki.jpg" alt="Arakaki" class="info-image">
        <p>Reinaldo Arakaki nasceu em 10 de setembro, na cidade de São Paulo, no bairro do Bom Retiro. Formado em Física pela USP, mudou-se para São José dos Campos em 1989 para cursar mestrado em Sensoriamento Remoto e, posteriormente, doutorado em Computação pelo INPE, concluído em 2000. Sua trajetória como educador começou ainda antes do mestrado, lecionando matemática em escolas como o Colégio Bilac, e depois atuando na UNIVAP.</p>
        <p>Após o doutorado, participou da implantação da UNIFESP em São José dos Campos. No entanto, em 2009, optou por ingressar na FATEC, onde viu um modelo educacional que o encantou — com foco na formação técnica e humana dos alunos, muitos deles oriundos de escolas públicas e em busca de ascensão profissional. Arakaki se tornou coordenador de cursos ligados à área de TI, sucedendo o professor Masanori, e foi fundamental na criação e estruturação dos cursos de Análise e Desenvolvimento de Sistemas (ADS) e Desenvolvimento de Software Multiplataforma (DSM).</p>
@@ -265,10 +313,10 @@ document.addEventListener('DOMContentLoaded', function () {
        <p>Atento às transformações do mercado, Arakaki reconhece o impacto da inteligência artificial na área de TI. Destaca que ferramentas como ChatGPT, Copilot e DeepSeek já são usadas pelos alunos no dia a dia, mas ressalta que é essencial entender o que se está fazendo — a IA é um apoio, mas não substitui o domínio do conhecimento. Ele vê essas ferramentas como aliadas no processo de ensino, desde que utilizadas com consciência.</p>
        <p>Por fim, acredita que o ensino deve ir além do conteúdo técnico. O mercado exige cada vez mais soft skills — como empatia, comunicação e trabalho em equipe — habilidades que se tornaram tão importantes quanto as hard skills. Segundo ele, "você é contratado pelas suas hard skills e demitido pelas suas soft skills", e a FATEC, com suas metodologias inovadoras e projetos interdisciplinares, é um ambiente fértil para o desenvolvimento completo dos alunos.</p>
      `,
-   },
-   'sales': {
-     titulo: 'Resumo da Entrevista com o Professor Antonio Wellington Sales Rios',
-     conteudo: `
+    },
+    'sales': {
+      titulo: 'Resumo da Entrevista com o Professor Antonio Wellington Sales Rios',
+      conteudo: `
        <img src="../statics/imgs/pessoas/sales/salesAula.jpg" alt="Sales" class="info-image">
        <p>Antonio Wellington Sales Rios nasceu em Fortaleza (CE), em 20 de junho de 1954. Mudou-se para São Paulo em 1971, aos 17 anos, para cursar a Escola de Especialistas da Aeronáutica (EEAer) em Guaratinguetá. Formado como 3º Sargento, ingressou posteriormente na Academia da Força Aérea (AFA) e, mais tarde, no Instituto Tecnológico de Aeronáutica (ITA), onde concluiu a graduação em Engenharia de Infraestrutura Aeronáutica (1981) e o mestrado (1991). Ao longo de sua carreira na Força Aérea, trabalhou na Diretoria de Engenharia da Aeronáutica e no Instituto de Proteção ao Voo (IPV), onde contribuiu com o desenvolvimento do SIPAR — um simulador de radar de aproximação que foi utilizado em diversos países da América Latina.</p>
        <p>Em 1995, ingressou no Centro Paula Souza, sendo diretor da FATEC Guaratinguetá entre 1998 e 2002. Em 2006, foi convidado pelo superintendente do CPS para implantar a FATEC São José dos Campos, tornando-se seu primeiro diretor, função que exerceu até 2010. A criação da unidade foi fruto de uma parceria entre o CPS e a Prefeitura Municipal de São José dos Campos (PMSJC), com o CPS responsável pela operação e a prefeitura fornecendo a infraestrutura.</p>
@@ -278,10 +326,10 @@ document.addEventListener('DOMContentLoaded', function () {
        <p>Após deixar a direção em 2011, Wellington continuou contribuindo com a instituição, atuando como coordenador do curso de Projetos de Estruturas Aeronáuticas até 2016. Atualmente, continua como professor, ministrando disciplinas relacionadas a meio ambiente, redes de computadores e sustentabilidade em diversos cursos tecnológicos da FATEC SJC.</p>
        <p>Sua trajetória é marcada pelo pioneirismo, dedicação e espírito colaborativo. Além de professor, também é empreendedor — fundador da empresa Micro Assist Informática Ltda. Seu papel foi essencial para a fundação, estruturação e consolidação da FATEC São José dos Campos, sendo lembrado como uma figura central nos primeiros anos da unidade e na formação de sua identidade institucional.</p>
      `,
-   },
-   'jeronimo': {
-     titulo: 'Resumo da Entrevista com o Professor Nilo Jeronimo Vieira (Março de 2023)',
-     conteudo: `
+    },
+    'jeronimo': {
+      titulo: 'Resumo da Entrevista com o Professor Nilo Jeronimo Vieira (Março de 2023)',
+      conteudo: `
        <img src="../statics/imgs/pessoas/jeronimo/jeronimo3.jpeg" alt="Jeronimo" class="info-image">
        <p>Professor Nilo Jeronimo Vieira, mineiro de Contagem (MG), mudou-se ainda criança para Itaquaquecetuba (SP), onde viveu até os 26 anos. De origem humilde, encontrou na leitura e nas músicas o gosto pela língua inglesa, tornando-se apaixonado pela educação desde cedo. Casado e pai de três filhos e três netas, mudou-se para São José dos Campos em 1993, após se casar com sua atual esposa. Formado em Letras (Português/Inglês) pela Universidade Cidade de São Paulo em 1991, iniciou sua trajetória como professor quase por acaso, após ser indicado por sua madrinha para cobrir uma vaga emergencial em uma escola estadual.</p>
        <p>Antes da docência, Nilo teve uma carreira diversificada: serviu na Força Aérea Brasileira, trabalhou em empresas como as Lojas Mappin, na Câmara Municipal de São Paulo, e em funções administrativas. Sua transição definitiva para o magistério se deu após essa primeira experiência como professor, tornando-se sua vocação permanente.</p>
@@ -292,10 +340,10 @@ document.addEventListener('DOMContentLoaded', function () {
        <p>Professor Nilo foi também responsável pela implantação do programa Ciências sem Fronteiras no Centro Paula Souza e do Núcleo de Relações Internacionais da FATEC, promovendo intercâmbios e acesso a exames como TOEIC e TOEFL. Ele ressalta que a FATEC é a única faculdade pública a oferecer inglês com foco em conversação em todos os cursos, com carga horária de 4 a 6 semestres. A instituição também passou a integrar a iniciativa internacional CDIO (Conceber, Desenvolver, Implementar e Operacionalizar), sendo a primeira FATEC a fazer parte da rede, o que ele considera um marco para o ensino de engenharia e tecnologia no Brasil.</p>
        <p>Professor Nilo demonstra entusiasmo com o futuro da FATEC, acreditando em seu papel transformador no ensino público de qualidade, gratuito e voltado ao desenvolvimento pessoal e profissional dos alunos.</p>
      `,
-   },
-   'tozi': {
-     titulo: 'Resumo da Entrevista com o Professor Luiz Antonio Tozi (20/09/2024)',
-     conteudo: `
+    },
+    'tozi': {
+      titulo: 'Resumo da Entrevista com o Professor Luiz Antonio Tozi (20/09/2024)',
+      conteudo: `
        <img src="../statics/imgs/pessoas/tozi/tozi.png" alt="Tozi" class="info-image">
        <p>Luiz Antonio Tozi é engenheiro naval pela USP, mestre e doutor pelo ITA, com larga experiência acadêmica, empresarial e em gestão pública. Já atuou como Secretário Executivo do Ministério da Educação (vice-ministro), Vice-Superintendente do Centro Paula Souza, conselheiro em empresas, professor da FGV e, desde 2011, é diretor da FATEC São José dos Campos.</p>
        <p>Com uma formação marcada por forte influência familiar — mãe professora e pai engenheiro da Embraer —, Tozi cresceu em um ambiente voltado ao conhecimento e à responsabilidade. Passou por escolas públicas e religiosas e ingressou na USP após tentativas em outras universidades. Chegou a montar empresas de alumínio e informática, mas sua paixão por ensinar falou mais alto, levando-o a retornar à docência.</p>
@@ -307,46 +355,46 @@ document.addEventListener('DOMContentLoaded', function () {
        <p>Durante sua gestão, destaca que não realizou grandes mudanças internas — manteve a equipe formada por seu antecessor, Professor Wellington — mas buscou fortalecer a FATEC como polo de inovação, inclusive criando o conselho consultivo externo e introduzindo metodologias como o CDIO e os projetos API.</p>
        <p>Tozi vê a FATEC São José como uma escola viva, em constante transformação, e não acomodada. Reafirma que ali não é lugar de aplicar soluções prontas, mas de prototipar, experimentar e inovar com coragem e visão coletiva. Finaliza destacando que seu papel tem sido garantir autonomia para que a escola continue sendo um espaço de desenvolvimento humano, acadêmico e social, sempre conectada com o ecossistema que a cerca.</p>
      `,
-   },
- };
+    },
+  };
 
- saibaMaisLinks.forEach(link => {
-   link.addEventListener('click', function (e) {
-     if (!this.getAttribute('target')) {
-       e.preventDefault();
+  saibaMaisLinks.forEach(link => {
+    link.addEventListener('click', function (e) {
+      if (!this.getAttribute('target')) {
+        e.preventDefault();
 
-       let infoId = this.getAttribute('data-id');
+        let infoId = this.getAttribute('data-id');
 
-       if (infoId === 'entrevistas') {
-         window.location.href = 'templates/individuais/entrevistas.html';
-         return;
-       }
+        if (infoId === 'entrevistas') {
+          window.location.href = 'templates/individuais/entrevistas.html';
+          return;
+        }
 
-       if (infoId === 'aeronaves') {
-         window.location.href = 'templates/individuais/aeronaves.html';
-         return;
-       }
+        if (infoId === 'aeronaves') {
+          window.location.href = 'templates/individuais/aeronaves.html';
+          return;
+        }
 
-       if (!infoId) {
-         const cardElement = this.closest('.card');
-         const cardTitle = cardElement.querySelector('.card-title').textContent.trim();
+        if (!infoId) {
+          const cardElement = this.closest('.card');
+          const cardTitle = cardElement.querySelector('.card-title').textContent.trim();
 
-         if (cardTitle.includes('EMB- 120')) {
-           infoId = 'emb-120';
-         } else if (cardTitle.includes('Guri na Fatec')) {
-           infoId = 'guri';
-         } else if (cardTitle.includes('Catálogos dos Laboratórios')) {
-           infoId = 'laboratorios';
-         }
-       }
+          if (cardTitle.includes('EMB- 120')) {
+            infoId = 'emb-120';
+          } else if (cardTitle.includes('Guri na Fatec')) {
+            infoId = 'guri';
+          } else if (cardTitle.includes('Catálogos dos Laboratórios')) {
+            infoId = 'laboratorios';
+          }
+        }
 
-       if (infoId && detalhesInfo[infoId]) {
-         window.mostrarInformacoes(infoId, detalhesInfo);
-       } else {
-         console.log('Informações para o ID:', infoId, 'não encontradas');
-         alert('Informações não disponíveis no momento. Em breve teremos mais conteúdo!');
-       }
-     }
-   });
- });
+        if (infoId && detalhesInfo[infoId]) {
+          window.mostrarInformacoes(infoId, detalhesInfo);
+        } else {
+          console.log('Informações para o ID:', infoId, 'não encontradas');
+          alert('Informações não disponíveis no momento. Em breve teremos mais conteúdo!');
+        }
+      }
+    });
+  });
 });
