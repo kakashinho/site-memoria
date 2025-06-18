@@ -213,7 +213,7 @@ document.addEventListener('DOMContentLoaded', function () {
     'jessen-vidal': {
       titulo: 'Quem foi Jessen Vidal?',
       conteudo: `
-   <img src="statics/imgs/pessoas/jessenVidal.jpg" alt="Professor Jessen Vidal" class="info-image">
+   <img src="statics/imgs/pessoas/jessenVidal/jessenJovem.jpg" alt="Professor Jessen Vidal" class="info-image">
    <p>O Prof. Jessen Vidal nasceu no município pernambucano de Guaranhuns, em 21 de novembro de 1930, filho de Sólon Vidal e Katy Leitão Vidal. Na infância e adolescência frequentou o Colégio Presbiteriano XV de Novembro de Guaranhuns e em 1950 veio para São José dos Campos para estudar no Instituto Tecnológico de Aeronáutica (ITA).</p>
    <p>Se formou Engenheiro Aeronáutico no ano de 1956, no ano de 1965, tirou o mestrado no ITA e em 1971 o doutorado na UNESP. Foi Professor Titular da Divisão de Aeronáutica do ITA, Professor Associado da Faculdade de Engenharia Mauá de 1965 a 1970. Reitor do ITA, de 1977 a 1982 e de 1989 a 1994 e Professor Titular e Diretor da Faculdade de Engenharia de Guaratinguetá, da UNESP.</p>
    <p>Foi membro do Conselho Deliberativo da FATEC de 1979 a 1981 e do Conselho Estadual de Educação de 1981 a 1984 e Secretário da Educação do Estado de São Paulo entre 1982 e 1983. Foi também conselheiro do CREA entre 1967 a 1971 e participou do conselho da FUNCATE no período de 1996 a 2007.</p>
@@ -234,7 +234,7 @@ document.addEventListener('DOMContentLoaded', function () {
     'cesar-lattes': {
       titulo: 'Quem foi Cesare Lattes?',
       conteudo: `
-       <img src="statics/imgs/pessoas/lattes.jpg" alt="César Lattes" class="info-image">
+       <img src="statics/imgs/pessoas/lattes/cesare.png" alt="César Lattes" class="info-image">
        <p>Cesar Lattes (1924-2005) foi um físico brasileiro, considerado um dos cientistas mais importantes do país. Formou-se em física e matemática pela Universidade de São Paulo (USP).</p>
        <p>Seu trabalho mais conhecido foi a descoberta do méson pi (ou píon), uma partícula subatômica, realizada em 1947 quando tinha apenas 23 anos. Esta descoberta foi fundamental para o avanço da física nuclear e de partículas.</p>
        <p>Em sua homenagem, foi criada a Plataforma Lattes, sistema de currículos acadêmicos mantido pelo CNPq que se tornou padrão nacional para o registro da vida acadêmica de estudantes e pesquisadores do Brasil.</p>
@@ -249,7 +249,7 @@ document.addEventListener('DOMContentLoaded', function () {
     'paula-souza': {
       titulo: 'Quem foi Paula Souza?',
       conteudo: `
-       <img src="statics/imgs/pessoas/souza.png" alt="Paula Souza" class="info-image">
+       <img src="statics/imgs/pessoas/souza/souza.png" alt="Paula Souza" class="info-image">
        <p>Antônio Francisco de Paula Souza (1843-1917) foi um engenheiro e político brasileiro, formado na Europa. Destacou-se pela contribuição à educação técnica no país, tendo sido o fundador da Escola Politécnica de São Paulo (atual Poli-USP).</p>
        <p>Foi diretor da instituição por 24 anos e defendeu uma educação técnica voltada ao desenvolvimento nacional. Seu legado inspirou a criação do Centro Estadual de Educação Tecnológica Paula Souza (CEETEPS) em 1969, instituição que administra as FATECs e ETECs do estado de São Paulo.</p>
        <div class="info-sources">
