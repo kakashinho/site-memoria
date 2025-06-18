@@ -17,8 +17,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     window.mostrarInformacoes = function (infoId, detalhesInfo) {
       if (detalhesInfo[infoId]) {
-        templateAnterior = secaoInformacoes.innerHTML;
-
+        if (secaoInformacoes.innerHTML.trim() !== '') {
+          templateAnterior = secaoInformacoes.innerHTML;
+        }
+        
         secaoInformacoes.innerHTML = `
          <div class="info-container">
            <h2 class="info-title">${detalhesInfo[infoId].titulo}</h2>
@@ -51,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
           console.log('Botão de voltar encontrado');
           botaoVoltar.addEventListener('click', function () {
             secaoInformacoes.innerHTML = templateAnterior;
-
+            
             const novosLinks = secaoInformacoes.querySelectorAll('.saiba-mais');
             novosLinks.forEach(link => {
               link.addEventListener('click', function (e) {
@@ -62,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
               });
             });
-
+            
             const botaoFechar = secaoInformacoes.querySelector('#fechar-info');
             if (botaoFechar) {
               botaoFechar.addEventListener('click', function () {
@@ -199,7 +201,7 @@ const detalhesInfo = {
              </video>
            </div>
            <div class="card-content">
-             <h3 class="card-title">Centro de Memórias</h3>
+             <h3 class="card-title">Video Centro de Memórias</h3>
              <p class="card-text">Video Apresentação do Centro de Memórias</p>
              <a href="#" class="saiba-mais" data-id="video-centro-memorias">Saiba +</a>
            </div>
