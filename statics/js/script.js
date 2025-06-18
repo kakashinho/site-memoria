@@ -8,8 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  let conteudoAnterior = '';
-  let temConteudoAnterior = false;
+  let htmlAnterior = null;
 
   const secaoInformacoes = document.getElementById('informacoes-detalhadas');
   if (secaoInformacoes) {
@@ -18,10 +17,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     window.mostrarInformacoes = function (infoId, detalhesInfo) {
       if (detalhesInfo[infoId]) {
-        // Se já tem conteúdo visível, guarda como anterior
         if (secaoInformacoes.style.display === 'block') {
-          conteudoAnterior = secaoInformacoes.innerHTML;
-          temConteudoAnterior = true;
+          htmlAnterior = secaoInformacoes.innerHTML;
         }
 
         secaoInformacoes.innerHTML = `
@@ -30,9 +27,10 @@ document.addEventListener('DOMContentLoaded', function () {
            <div class="info-content">
              <div class="info-bio">
                ${detalhesInfo[infoId].conteudo}
+             </div>
            </div>
            <div style="display: flex; justify-content: center; gap: 40px; margin: 20px auto;">
-             ${temConteudoAnterior ? '<button id="voltar-info" style="padding: 8px 15px; background-color: #005c6e; color: white; border: none; border-radius: 4px; cursor: pointer;">Voltar</button>' : ''}
+             ${htmlAnterior ? '<button id="voltar-info" style="padding: 8px 15px; background-color: #005c6e; color: white; border: none; border-radius: 4px; cursor: pointer;">Voltar</button>' : ''}
              <button id="fechar-info" style="padding: 8px 15px; background-color: #005c6e; color: white; border: none; border-radius: 4px; cursor: pointer;">Fechar</button>
            </div>
          </div>
@@ -56,8 +54,8 @@ document.addEventListener('DOMContentLoaded', function () {
         if (botaoVoltar) {
           console.log('Botão de voltar encontrado');
           botaoVoltar.addEventListener('click', function () {
-            secaoInformacoes.innerHTML = conteudoAnterior;
-            temConteudoAnterior = false;
+            secaoInformacoes.innerHTML = htmlAnterior;
+            htmlAnterior = null;
             
             const novosLinks = secaoInformacoes.querySelectorAll('.saiba-mais');
             novosLinks.forEach(link => {
@@ -74,7 +72,6 @@ document.addEventListener('DOMContentLoaded', function () {
             if (botaoFechar) {
               botaoFechar.addEventListener('click', function () {
                 secaoInformacoes.style.display = 'none';
-                temConteudoAnterior = false;
               });
             }
           });
@@ -85,7 +82,6 @@ document.addEventListener('DOMContentLoaded', function () {
           console.log('Botão de fechar encontrado');
           botaoFechar.addEventListener('click', function () {
             secaoInformacoes.style.display = 'none';
-            temConteudoAnterior = false;
           });
         }
       }
