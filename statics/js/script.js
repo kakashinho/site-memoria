@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function () {
     <div class="card-container">
       <article class="card">
         <div class="card-image-container">
-          <img src="statics/imgs/pessoas/lattes.jpg" alt="César Lattes" class="card-image" loading="lazy">
+          <img src="statics/imgs/pessoas/lattes/lattes.jpg" alt="César Lattes" class="card-image" loading="lazy">
         </div>
         <div class="card-content">
           <h3 class="card-title">Cesare Lattes</h3>
@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       <article class="card">
         <div class="card-image-container">
-          <img src="statics/imgs/pessoas/jessenVidal.jpg" alt="Professor Jessen Vidal" class="card-image"
+          <img src="statics/imgs/pessoas/jessenVidal/jessenVidal.jpg" alt="Professor Jessen Vidal" class="card-image"
             loading="lazy">
         </div>
         <div class="card-content">
@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       <article class="card">
         <div class="card-image-container">
-          <img src="statics/imgs/pessoas/souza.png" alt="Paula Souza" class="card-image" loading="lazy">
+          <img src="statics/imgs/pessoas/souza/souza.png" alt="Paula Souza" class="card-image" loading="lazy">
         </div>
         <div class="card-content">
           <h3 class="card-title">Paula Souza</h3>
