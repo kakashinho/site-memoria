@@ -5,25 +5,24 @@ document.addEventListener('DOMContentLoaded', function () {
       alert('Bem-vindo ao Centro de Memória FATEC!');
     });
   }
-
   const secaoInformacoes = document.getElementById('informacoes-detalhadas');
   const detalhesInfo = {
     'eventos-programas': {
       titulo: 'Eventos e Programas da Fatec',
       conteudo: `
-        <div class="card-container">
-          <article class="card">
-            <div class="card-image-container">
-              <img src="statics/imgs/pictures/BAJA.jpeg" alt="BAJA" class="card-image" loading="lazy">
-            </div>
-            <div class="card-content">
-              <h3 class="card-title">BAJA SAE BRASIL</h3>
-              <p class="card-text">O Projeto Baja é desenvolvido por alunos dos cursos de Engenharia e Física, entre outros, no intuito de aplicar os conceitos aprendidos em sala de aula para projetar, construir e desenvolver um protótipo no estilo off-road para competir entre as equipes.</p>
-              <a href="#" class="saiba-mais" data-id="baja">Saiba +</a>
-            </div>
-          </article>
-        </div>
-      `
+       <div class="card-container">
+         <article class="card">
+           <div class="card-image-container">
+             <img src="statics/imgs/pictures/BAJA.jpeg" alt="BAJA" class="card-image" loading="lazy">
+           </div>
+           <div class="card-content">
+             <h3 class="card-title">BAJA SAE BRASIL</h3>
+             <p class="card-text">O Projeto Baja é desenvolvido por alunos dos cursos de Engenharia e Física, entre outros, no intuito de aplicar os conceitos aprendidos em sala de aula para projetar, construir e desenvolver um protótipo no estilo off-road para competir entre as equipes.</p>
+             <a href="#" class="saiba-mais" data-id="baja">Saiba +</a>
+           </div>
+         </article>
+       </div>
+     `
     },
     'masanori': {
       titulo: 'Entrevista com o Professor Fernando Masanori',
@@ -38,36 +37,32 @@ document.addEventListener('DOMContentLoaded', function () {
       conteudo: `<p>Conteúdo da entrevista Sales...</p>`
     }
   };
-
   window.mostrarInformacoes = function (infoId, detalhesInfo) {
     if (detalhesInfo[infoId]) {
       const idsDeEntrevistas = ['masanori', 'arakaki', 'sales'];
       let botaoEntrevista = '';
       if (idsDeEntrevistas.includes(infoId)) {
         botaoEntrevista = `
-          <button id="ler-entrevista-completa" style="display: block; margin: 20px auto; padding: 8px 15px; background-color: #005c6e; color: white; border: none; border-radius: 4px; cursor: pointer;">
-            Ler entrevista completa
-          </button>`;
+         <button id="ler-entrevista-completa" style="display: block; margin: 20px auto; padding: 8px 15px; background-color: #005c6e; color: white; border: none; border-radius: 4px; cursor: pointer;">
+           Ler entrevista completa
+         </button>`;
       }
-
       secaoInformacoes.innerHTML = `
-        <div class="info-container">
-          <h2 class="info-title">${detalhesInfo[infoId].titulo}</h2>
-          <div class="info-content">
-            <div class="info-bio">
-              ${detalhesInfo[infoId].conteudo}
-            </div>
-            ${botaoEntrevista}
-          </div>
-          <button id="fechar-info" style="display: block; margin: 20px auto; padding: 8px 15px; background-color: #005c6e; color: white; border: none; border-radius: 4px; cursor: pointer;">
-            Fechar
-          </button>
-        </div>
-      `;
-
+       <div class="info-container">
+         <h2 class="info-title">${detalhesInfo[infoId].titulo}</h2>
+         <div class="info-content">
+           <div class="info-bio">
+             ${detalhesInfo[infoId].conteudo}
+           </div>
+           ${botaoEntrevista}
+         </div>
+         <button id="fechar-info" style="display: block; margin: 20px auto; padding: 8px 15px; background-color: #005c6e; color: white; border: none; border-radius: 4px; cursor: pointer;">
+           Fechar
+         </button>
+       </div>
+     `;
       secaoInformacoes.style.display = 'block';
       secaoInformacoes.scrollIntoView({ behavior: 'smooth' });
-
       const novosLinks = secaoInformacoes.querySelectorAll('.saiba-mais');
       novosLinks.forEach(link => {
         link.addEventListener('click', function (e) {
@@ -78,7 +73,6 @@ document.addEventListener('DOMContentLoaded', function () {
           }
         });
       });
-
       const botaoFechar = document.getElementById('fechar-info');
       if (botaoFechar) {
         botaoFechar.addEventListener('click', function () {
@@ -87,7 +81,6 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }
   };
-
   const saibaMaisLinks = document.querySelectorAll('.saiba-mais');
   saibaMaisLinks.forEach(link => {
     link.addEventListener('click', function (e) {
@@ -100,9 +93,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-
 const saibaMaisLinks = document.querySelectorAll('.saiba-mais');
-
 
 const detalhesInfo = {
 
