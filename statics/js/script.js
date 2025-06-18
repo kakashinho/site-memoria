@@ -16,18 +16,27 @@ document.addEventListener('DOMContentLoaded', function () {
 
     window.mostrarInformacoes = function (infoId, detalhesInfo) {
       if (detalhesInfo[infoId]) {
+        let botaoEntrevista = '';
+        // IDs que devem exibir o botão "Ler entrevista completa"
+        const idsDeEntrevistas = ['masanori', 'arakaki', 'sales'];
+
+        if (idsDeEntrevistas.includes(infoId)) {
+          botaoEntrevista = `<button style="display: block; margin: 20px auto; padding: 8px 15px; background-color: #005c6e; color: white; border: none; border-radius: 4px; cursor: pointer;">Ler entrevista Completa</button>`;
+        }
+
         secaoInformacoes.innerHTML = `
-         <div class="info-container">
-           <h2 class="info-title">${detalhesInfo[infoId].titulo}</h2>
-           <div class="info-content">
-             <div class="info-bio">
-               ${detalhesInfo[infoId].conteudo}
-             </div>
-             <button style="display: block; margin: 20px auto; padding: 8px 15px; background-color: #005c6e; color: white; border: none; border-radius: 4px; cursor: pointer;">Ler entrevista Completa</button>
-           </div>
-           <button id="fechar-info" style="display: block; margin: 20px auto; padding: 8px 15px; background-color: #005c6e; color: white; border: none; border-radius: 4px; cursor: pointer;">Fechar</button>
-         </div>
-       `;
+ <div class="info-container">
+   <h2 class="info-title">${detalhesInfo[infoId].titulo}</h2>
+   <div class="info-content">
+     <div class="info-bio">
+       ${detalhesInfo[infoId].conteudo}
+     </div>
+     ${botaoEntrevista}
+   </div>
+   <button id="fechar-info" style="display: block; margin: 20px auto; padding: 8px 15px; background-color: #005c6e; color: white; border: none; border-radius: 4px; cursor: pointer;">Fechar</button>
+ </div>
+`;
+
 
         secaoInformacoes.style.display = 'block';
         secaoInformacoes.scrollIntoView({ behavior: 'smooth' });
