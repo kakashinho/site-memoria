@@ -22,9 +22,6 @@ document.addEventListener('DOMContentLoaded', function () {
            <div class="info-content">
              <div class="info-bio">
                ${detalhesInfo[infoId].conteudo}
-             </div>
-             <button style="display: block; margin: 20px auto; padding: 8px 15px; background-color: #005c6e; color: white; border: none; border-radius: 4px; cursor: pointer;">Ler entrevista Completa</button>
-           </div>
            <button id="fechar-info" style="display: block; margin: 20px auto; padding: 8px 15px; background-color: #005c6e; color: white; border: none; border-radius: 4px; cursor: pointer;">Fechar</button>
          </div>
        `;
