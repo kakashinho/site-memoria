@@ -196,7 +196,7 @@ document.addEventListener('DOMContentLoaded', function () {
        </div>
        <div class="info-sources">
          <p>Link relacionado:</p>
-         <p><a href="http://www.memorias.cpscetec.com.br/acervoVer.php?cma=29" target="_blank" class="parque-link">http://www.memorias.cpscetec.com.br/acervoVer.php?cma=29</a></p>
+         <p><a href="http://www.memorias.cpscetec.com.br/acervoVer.php?cma=29" target="_blank" class="parque-link">Centros de Memória do Centro Paula Souza</a></p>
        </div>
      `
     },
@@ -244,8 +244,8 @@ document.addEventListener('DOMContentLoaded', function () {
        <div class="info-sources">
          <p>Fontes:</p>
          <p><a href="https://pt.wikipedia.org/wiki/C%C3%A9sar_Lattes#CITEREFLeite_Vieira2019" target="_blank" class="jessen-link">Wikpedia</a></p>
-         <p><a href="https://www.ebiografia.com/cesar_lattes/" target="_blank" class="jessen-link">https://www.ebiografia.com/cesar_lattes/</a></p>
-         <p><a href="https://educacao.uol.com.br/biografias/cesar-lattes.htm" target="_blank" class="jessen-link">https://educacao.uol.com.br/biografias/cesar-lattes.htm</a></p>
+         <p><a href="https://www.ebiografia.com/cesar_lattes/" target="_blank" class="jessen-link">Biografia</a></p>
+         <p><a href="https://educacao.uol.com.br/biografias/cesar-lattes.htm" target="_blank" class="jessen-link">Reportagem UOL</a></p>
        </div>
      `
     },
@@ -257,8 +257,8 @@ document.addEventListener('DOMContentLoaded', function () {
        <p>Foi diretor da instituição por 24 anos e defendeu uma educação técnica voltada ao desenvolvimento nacional. Seu legado inspirou a criação do Centro Estadual de Educação Tecnológica Paula Souza (CEETEPS) em 1969, instituição que administra as FATECs e ETECs do estado de São Paulo.</p>
        <div class="info-sources">
          <p>Fontes:</p>
-         <p><a href="https://www.poli.usp.br/institucional/diretoria/galeria-de-diretores/prof-dr-antonio-francisco-de-paula-souza" target="_blank" class="jessen-link">https://www.poli.usp.br/institucional/diretoria/galeria-de-diretores/prof-dr-antonio-francisco-de-paula-souza</a></p>
-         <p><a href="https://www.cps.sp.gov.br/sobre-o-centro-paula-souza/" target="_blank" class="jessen-link">https://www.cps.sp.gov.br/sobre-o-centro-paula-souza/</a></p>
+         <p><a href="https://www.poli.usp.br/institucional/diretoria/galeria-de-diretores/prof-dr-antonio-francisco-de-paula-souza" target="_blank" class="jessen-link">Escola Politécnica USP</a></p>
+         <p><a href="https://www.cps.sp.gov.br/sobre-o-centro-paula-souza/" target="_blank" class="jessen-link">Centro Paula Souza</a></p>
        </div>
      `
     },
@@ -271,10 +271,9 @@ document.addEventListener('DOMContentLoaded', function () {
        <p>Na FATEC São José dos Campos, o projeto Baja proporciona aos alunos a oportunidade de desenvolver habilidades técnicas e de gestão, trabalhando em equipe e aplicando conhecimentos de diversas áreas.</p>
        <div class="info-sources">
          <p>Fontes:</p>
-         <p><a href="https://saebrasil.org.br/programas-estudantis/baja-sae-brasil" target="_blank" class="jessen-link">https://saebrasil.org.br/programas-estudantis/baja-sae-brasil</a></p>
-         <p><a href="https://fatecsjc-prd.azurewebsites.net/images/baja/2016/fotos_baja_2016.php" target="_blank" class="jessen-link">https://fatecsjc-prd.azurewebsites.net/images/baja/2016/fotos_baja_2016.php</a></p>
-         <p><a href="https://www.cps.sp.gov.br/fatec-sao-jose-dos-campos-recebe-competicao-nacional-de-engenharia/" target="_blank" class="jessen-link">https://www.cps.sp.gov.br/fatec-sao-jose-dos-campos-recebe-competicao-nacional-de-engenharia/</a></p>
-         <p><a href="https://pt.wikipedia.org/wiki/F%C3%B3rmula_SAE" target="_blank" class="jessen-link">https://pt.wikipedia.org/wiki/F%C3%B3rmula_SAE</a></p>
+         <p><a href="https://saebrasil.org.br/programas-estudantis/baja-sae-brasil" target="_blank" class="jessen-link">BAJA SAE BRASIL – ETAPA NACIONAL</a></p>
+         <p><a href="https://www.cps.sp.gov.br/fatec-sao-jose-dos-campos-recebe-competicao-nacional-de-engenharia/" target="_blank" class="jessen-link">Fatec SJC recebe competição nacional de engenharia</a></p>
+         <p><a href="https://pt.wikipedia.org/wiki/F%C3%B3rmula_SAE" target="_blank" class="jessen-link">Society of Automotive Engineers</a></p>
        </div>
      `
     },
