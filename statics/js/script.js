@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   let templateAnterior = null;
+  let nivelAtual = 0;
 
   const secaoInformacoes = document.getElementById('informacoes-detalhadas');
   if (secaoInformacoes) {
@@ -17,9 +18,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     window.mostrarInformacoes = function (infoId, detalhesInfo) {
       if (detalhesInfo[infoId]) {
-        if (secaoInformacoes.innerHTML.trim() !== '') {
+        if (nivelAtual > 0) {
           templateAnterior = secaoInformacoes.innerHTML;
         }
+        nivelAtual++;
         
         secaoInformacoes.innerHTML = `
          <div class="info-container">
@@ -28,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
              <div class="info-bio">
                ${detalhesInfo[infoId].conteudo}
            <div style="display: flex; justify-content: center; gap: 40px; margin: 20px auto;">
-             ${templateAnterior ? '<button id="voltar-info" style="padding: 8px 15px; background-color: #005c6e; color: white; border: none; border-radius: 4px; cursor: pointer;">Voltar</button>' : ''}
+             ${nivelAtual > 1 ? '<button id="voltar-info" style="padding: 8px 15px; background-color: #005c6e; color: white; border: none; border-radius: 4px; cursor: pointer;">Voltar</button>' : ''}
              <button id="fechar-info" style="padding: 8px 15px; background-color: #005c6e; color: white; border: none; border-radius: 4px; cursor: pointer;">Fechar</button>
            </div>
          </div>
@@ -52,6 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (botaoVoltar) {
           console.log('Botão de voltar encontrado');
           botaoVoltar.addEventListener('click', function () {
+            nivelAtual--;
             secaoInformacoes.innerHTML = templateAnterior;
             
             const novosLinks = secaoInformacoes.querySelectorAll('.saiba-mais');
@@ -70,6 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
               botaoFechar.addEventListener('click', function () {
                 secaoInformacoes.style.display = 'none';
                 templateAnterior = null;
+                nivelAtual = 0;
               });
             }
           });
@@ -81,6 +85,7 @@ document.addEventListener('DOMContentLoaded', function () {
           botaoFechar.addEventListener('click', function () {
             secaoInformacoes.style.display = 'none';
             templateAnterior = null;
+            nivelAtual = 0;
           });
         }
       }
@@ -201,7 +206,7 @@ const detalhesInfo = {
              </video>
            </div>
            <div class="card-content">
-             <h3 class="card-title">Video Centro de Memórias</h3>
+             <h3 class="card-title">Centro de Memórias</h3>
              <p class="card-text">Video Apresentação do Centro de Memórias</p>
              <a href="#" class="saiba-mais" data-id="video-centro-memorias">Saiba +</a>
            </div>
