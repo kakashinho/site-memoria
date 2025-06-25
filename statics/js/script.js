@@ -248,12 +248,9 @@ document.addEventListener('DOMContentLoaded', function () {
        <p>Cesar Lattes (1924-2005) foi um físico brasileiro, considerado um dos cientistas mais importantes do país. Formou-se em física e matemática pela Universidade de São Paulo (USP).</p>
        <p>Seu trabalho mais conhecido foi a descoberta do méson pi (ou píon), uma partícula subatômica, realizada em 1947 quando tinha apenas 23 anos. Esta descoberta foi fundamental para o avanço da física nuclear e de partículas.</p>
        <p>Em sua homenagem, foi criada a Plataforma Lattes, sistema de currículos acadêmicos mantido pelo CNPq que se tornou padrão nacional para o registro da vida acadêmica de estudantes e pesquisadores do Brasil.</p>
-       <div class="info-sources">
-         <p>Fontes:</p>
          <p><a href="https://pt.wikipedia.org/wiki/C%C3%A9sar_Lattes#CITEREFLeite_Vieira2019" target="_blank" class="jessen-link">Wikpedia</a></p>
          <p><a href="https://www.ebiografia.com/cesar_lattes/" target="_blank" class="jessen-link">Biografia</a></p>
          <p><a href="https://educacao.uol.com.br/biografias/cesar-lattes.htm" target="_blank" class="jessen-link">Reportagem UOL</a></p>
-       </div>
      `
     },
     'paula-souza': {
@@ -262,11 +259,8 @@ document.addEventListener('DOMContentLoaded', function () {
        <img src="statics/imgs/pessoas/souza/souza.png" alt="Paula Souza" class="info-image">
        <p>Antônio Francisco de Paula Souza (1843-1917) foi um engenheiro e político brasileiro, formado na Europa. Destacou-se pela contribuição à educação técnica no país, tendo sido o fundador da Escola Politécnica de São Paulo (atual Poli-USP).</p>
        <p>Foi diretor da instituição por 24 anos e defendeu uma educação técnica voltada ao desenvolvimento nacional. Seu legado inspirou a criação do Centro Estadual de Educação Tecnológica Paula Souza (CEETEPS) em 1969, instituição que administra as FATECs e ETECs do estado de São Paulo.</p>
-       <div class="info-sources">
-         <p>Fontes:</p>
          <p><a href="https://www.poli.usp.br/institucional/diretoria/galeria-de-diretores/prof-dr-antonio-francisco-de-paula-souza" target="_blank" class="jessen-link">Escola Politécnica USP</a></p>
          <p><a href="https://www.cps.sp.gov.br/sobre-o-centro-paula-souza/" target="_blank" class="jessen-link">Centro Paula Souza</a></p>
-       </div>
      `
     },
     'baja': {
@@ -276,12 +270,9 @@ document.addEventListener('DOMContentLoaded', function () {
        <p>O Projeto Baja SAE é desenvolvido por alunos de diversos cursos, principalmente Engenharia, com o objetivo de aplicar os conhecimentos teóricos em um projeto prático: projetar, construir e testar um veículo off-road.</p>
        <p>As equipes participam de competições nacionais e internacionais, onde são avaliadas em diversos aspectos, desde o projeto até o desempenho do veículo em provas dinâmicas e de resistência.</p>
        <p>Na FATEC São José dos Campos, o projeto Baja proporciona aos alunos a oportunidade de desenvolver habilidades técnicas e de gestão, trabalhando em equipe e aplicando conhecimentos de diversas áreas.</p>
-       <div class="info-sources">
-         <p>Fontes:</p>
          <p><a href="https://saebrasil.org.br/programas-estudantis/baja-sae-brasil" target="_blank" class="jessen-link">BAJA SAE BRASIL – ETAPA NACIONAL</a></p>
          <p><a href="https://www.cps.sp.gov.br/fatec-sao-jose-dos-campos-recebe-competicao-nacional-de-engenharia/" target="_blank" class="jessen-link">Fatec SJC recebe competição nacional de engenharia</a></p>
          <p><a href="https://pt.wikipedia.org/wiki/F%C3%B3rmula_SAE" target="_blank" class="jessen-link">Society of Automotive Engineers</a></p>
-       </div>
      `
     },
     'guri': {
