@@ -57,13 +57,13 @@ document.addEventListener('DOMContentLoaded', function () {
           botaoFechar.addEventListener('click', function () {
             secaoInformacoes.style.display = 'none';
           });
-          const botaoVoltar = document.getElementById('voltar-info');
-          if (botaoVoltar) {
-            console.log('Botão de voltar encontrado');
-            botaoVoltar.addEventListener('click', function () {
-              window.history.back();
-            });
-          }
+        }
+        const botaoVoltar = document.getElementById('voltar-info');
+        if (botaoVoltar) {
+          console.log('Botão de voltar encontrado');
+          botaoVoltar.addEventListener('click', function () {
+            window.history.back();
+          });
         }
       }
     };
