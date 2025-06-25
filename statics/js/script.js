@@ -27,7 +27,10 @@ document.addEventListener('DOMContentLoaded', function () {
            <div class="info-content">
              <div class="info-bio">
                ${detalhesInfo[infoId].conteudo}
-           <button id="fechar-info" style="display: block; margin: 20px auto; padding: 8px 15px; background-color: #005c6e; color: white; border: none; border-radius: 4px; cursor: pointer;">Fechar</button>
+           <div class="botoes-navegacao">
+  <button id="voltar-info" class="botao-voltar">Voltar</button>
+  <button id="fechar-info" class="botao-fechar">Fechar</button>
+</div>
          </div>
        `;
 
@@ -53,6 +56,14 @@ document.addEventListener('DOMContentLoaded', function () {
           console.log('Botão de fechar encontrado');
           botaoFechar.addEventListener('click', function () {
             secaoInformacoes.style.display = 'none';
+
+            const botaoVoltar = document.getElementById('voltar-info');
+            if (botaoVoltar) {
+              console.log('Botão de voltar encontrado');
+              botaoVoltar.addEventListener('click', function () {
+                window.history.back();
+              });
+            }
           });
         }
       }
