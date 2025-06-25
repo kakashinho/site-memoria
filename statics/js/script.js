@@ -1,26 +1,22 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-
   const tituloPrincipal = document.getElementById('titulo-principal');
   if (tituloPrincipal) {
-    console.log('Título principal encontrado:', tituloPrincipal.textContent);
     tituloPrincipal.addEventListener('click', function () {
       alert('Bem-vindo ao Centro de Memória FATEC!');
     });
   }
 
-
-
-
   const secaoInformacoes = document.getElementById('informacoes-detalhadas');
+  let historicoInfos = [];
+
   if (secaoInformacoes) {
-    console.log('Seção de informações detalhadas encontrada');
-
-
-
-
     window.mostrarInformacoes = function (infoId, detalhesInfo) {
       if (detalhesInfo[infoId]) {
+        if (historicoInfos.length === 0 || historicoInfos[historicoInfos.length - 1] !== infoId) {
+          historicoInfos.push(infoId);
+        }
+
         secaoInformacoes.innerHTML = `
          <div class="info-container">
            <h2 class="info-title">${detalhesInfo[infoId].titulo}</h2>
@@ -34,10 +30,8 @@ document.addEventListener('DOMContentLoaded', function () {
          </div>
        `;
 
-
         secaoInformacoes.style.display = 'block';
         secaoInformacoes.scrollIntoView({ behavior: 'smooth' });
-
 
         const novosLinks = secaoInformacoes.querySelectorAll('.saiba-mais');
         novosLinks.forEach(link => {
@@ -50,27 +44,29 @@ document.addEventListener('DOMContentLoaded', function () {
           });
         });
 
-
         const botaoFechar = document.getElementById('fechar-info');
         if (botaoFechar) {
-          console.log('Botão de fechar encontrado');
           botaoFechar.addEventListener('click', function () {
             secaoInformacoes.style.display = 'none';
           });
         }
+
         const botaoVoltar = document.getElementById('voltar-info');
         if (botaoVoltar) {
-          console.log('Botão de voltar encontrado');
           botaoVoltar.addEventListener('click', function () {
-            window.history.back();
+            historicoInfos.pop();
+            const anteriorId = historicoInfos.pop();
+            if (anteriorId && detalhesInfo[anteriorId]) {
+              window.mostrarInformacoes(anteriorId, detalhesInfo);
+            } else {
+              secaoInformacoes.style.display = 'none';
+            }
           });
         }
       }
     };
   }
-
-
-
+});
 
   const saibaMaisLinks = document.querySelectorAll('.saiba-mais');
 
