@@ -238,7 +238,8 @@ document.addEventListener('DOMContentLoaded', function () {
        <img src="statics/imgs/pictures/ParqueTecnologico2.png" alt="Parque Tecnológico" class="info-image">
        <p>O Parque Tecnológico São José dos Campos foi instituído pelo Decreto Municipal nº 12.367/2006, sendo um ambiente de inovação que abriga empresas de tecnologia, centros de pesquisa e instituições de ensino.</p>
        <p>A FATEC São José dos Campos está localizada dentro do Parque Tecnológico, o que proporciona aos alunos e professores um ambiente privilegiado para o desenvolvimento de projetos e pesquisas em parceria com empresas e instituições.</p>
-       <p><a href="https://beacons.ai/pitsjc" target="_blank" class="parque-link">Visite o site do Parque Tecnológico</a></p>
+       <p><a href="https://pitsjc.org.br/" target="_blank" class="parque-link">Site do Parque Tecnológico</a></p>
+       <p><a href="https://beacons.ai/pitsjc" target="_blank" class="parque-link">Redes Sociais do Parque Tecnológico</a></p>
      `
     },
     'cesar-lattes': {
