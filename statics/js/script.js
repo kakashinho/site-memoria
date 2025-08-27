@@ -417,12 +417,12 @@ if (secaoInformacoes) {
         let infoId = this.getAttribute('data-id');
 
         if (infoId === 'entrevistas') {
-          window.location.href = 'templates/individuais/entrevistas.html';
+          window.location.href = 'templates individuais/entrevistas.html';
           return;
         }
 
         if (infoId === 'aeronaves') {
-          window.location.href = 'templates/individuais/aeronaves.html';
+          window.location.href = 'templates individuais/aeronaves.html';
           return;
         }
 
