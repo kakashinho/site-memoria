@@ -7,10 +7,10 @@ document.addEventListener('DOMContentLoaded', function () {
 if (secaoInformacoes) {
         console.log('Seção de informações detalhadas encontrada');
 
-        window.mostrarInformacoes = function (infoId, detalhesInfo) {
+        window.mostrarInformacoes = function (infoId, detalhesInfo, ehVoltar = false) {
           if (!detalhesInfo[infoId]) return;
 
-          if (idAtual && idAtual !== infoId) {
+          if (!ehVoltar && idAtual && idAtual !== infoId) {
             historicoInfo.push(idAtual);
           }
           idAtual = infoId;
@@ -29,6 +29,8 @@ if (secaoInformacoes) {
               </div>
             </div>
           `;
+          console.log(detalhesInfo[infoId].titulo)
+
 
           secaoInformacoes.style.display = 'block';
           secaoInformacoes.scrollIntoView({ behavior: 'smooth' });
@@ -58,8 +60,9 @@ if (secaoInformacoes) {
           if (botaoVoltar) {
             botaoVoltar.addEventListener('click', function () {
               const idAnterior = historicoInfo.pop();
+              console.log(idAnterior)
               if (idAnterior && detalhesInfo[idAnterior]) {
-                window.mostrarInformacoes(idAnterior, detalhesInfo);
+                window.mostrarInformacoes(idAnterior, detalhesInfo, true);
               }else {
                 secaoInformacoes.style.display = 'none';
               }
