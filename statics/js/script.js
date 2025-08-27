@@ -1,67 +1,84 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-
-  const tituloPrincipal = document.getElementById('titulo-principal');
-  if (tituloPrincipal) {
-    console.log('Título principal encontrado:', tituloPrincipal.textContent);
-    tituloPrincipal.addEventListener('click', function () {
-      alert('Bem-vindo ao Centro de Memória FATEC!');
-    });
-  }
-
-
-
-
   const secaoInformacoes = document.getElementById('informacoes-detalhadas');
-  if (secaoInformacoes) {
-    console.log('Seção de informações detalhadas encontrada');
+  const historicoInfo = [];
+  let idAtual = null;
 
+if (secaoInformacoes) {
+        console.log('Seção de informações detalhadas encontrada');
 
+        window.mostrarInformacoes = function (infoId, detalhesInfo) {
+          if (!detalhesInfo[infoId]) return;
 
+          if (idAtual && idAtual !== infoId) {
+            historicoInfo.push(idAtual);
+          }
+          idAtual = infoId;
 
-    window.mostrarInformacoes = function (infoId, detalhesInfo) {
-      if (detalhesInfo[infoId]) {
-        secaoInformacoes.innerHTML = `
-         <div class="info-container">
-           <h2 class="info-title">${detalhesInfo[infoId].titulo}</h2>
-           <div class="info-content">
-             <div class="info-bio">
-               ${detalhesInfo[infoId].conteudo}
-           <div class="botoes-navegacao">
-  <button id="voltar-info" class="botao-voltar">Voltar</button>
-  <button id="fechar-info" class="botao-fechar">Fechar</button>
-</div>
-         </div>
-       `;
+          secaoInformacoes.innerHTML = `
+            <div class="info-container">
+              <h2 class="info-title">${detalhesInfo[infoId].titulo}</h2>
+              <div class="info-content">
+                <div class="info-bio">
+                  ${detalhesInfo[infoId].conteudo}
+                </div>
+                <div class="botoes-navegacao">
+                  <button id="voltar-info" class="botao-voltar">Voltar</button>
+                  <button id="fechar-info" class="botao-fechar">Fechar</button>
+                </div>
+              </div>
+            </div>
+          `;
 
+          secaoInformacoes.style.display = 'block';
+          secaoInformacoes.scrollIntoView({ behavior: 'smooth' });
 
-        secaoInformacoes.style.display = 'block';
-        secaoInformacoes.scrollIntoView({ behavior: 'smooth' });
+          // Adiciona eventos aos links "Saiba +"
+          const novosLinks = secaoInformacoes.querySelectorAll('.saiba-mais');
+          novosLinks.forEach(link => {
+            link.addEventListener('click', function (e) {
+              e.preventDefault();
+              const novoId = this.getAttribute('data-id');
+              if (detalhesInfo[novoId]) {
+                window.mostrarInformacoes(novoId, detalhesInfo);
+              }
+            });
+          });
 
+          // Botão Fechar
+          const botaoFechar = document.getElementById('fechar-info');
+          if (botaoFechar) {
+            botaoFechar.addEventListener('click', function () {
+              secaoInformacoes.style.display = 'none';
+            });
+          }
 
-        const novosLinks = secaoInformacoes.querySelectorAll('.saiba-mais');
-        novosLinks.forEach(link => {
+          // Botão Voltar
+          const botaoVoltar = document.getElementById('voltar-info');
+          if (botaoVoltar) {
+            botaoVoltar.addEventListener('click', function () {
+              const idAnterior = historicoInfo.pop();
+              if (idAnterior && detalhesInfo[idAnterior]) {
+                window.mostrarInformacoes(idAnterior, detalhesInfo);
+              }else {
+                secaoInformacoes.style.display = 'none';
+              }
+            });
+          }
+        };
+
+        // Ativa os primeiros links da página
+        const saibaMaisLinks = document.querySelectorAll('.saiba-mais');
+        saibaMaisLinks.forEach(link => {
           link.addEventListener('click', function (e) {
             e.preventDefault();
-            const novoId = this.getAttribute('data-id');
-            if (detalhesInfo[novoId]) {
-              window.mostrarInformacoes(novoId, detalhesInfo);
+            const infoId = this.getAttribute('data-id');
+            if (detalhesInfo[infoId]) {
+              window.mostrarInformacoes(infoId, detalhesInfo);
             }
           });
         });
-
-
-        const botaoFechar = document.getElementById('fechar-info');
-        if (botaoFechar) {
-          console.log('Botão de fechar encontrado');
-          botaoFechar.addEventListener('click', function () {
-            secaoInformacoes.style.display = 'none';
-          });
-        }
       }
-    };
-  }
-
 
   const saibaMaisLinks = document.querySelectorAll('.saiba-mais');
 
@@ -158,9 +175,8 @@ document.addEventListener('DOMContentLoaded', function () {
            </div>
            <div class="card-content">
              <h3 class="card-title">Centro de Memórias</h3>
-             <p class="card-text">Criado pela Portaria 01 de 30/06/2022, o projeto visa resgatar e preservar a memória da
-               Fatec São José dos Campos por meio de inventário, acervo e ações culturais ligadas à história da educação
-               tecnológica.</p>
+             <p class="card-text">O Centro de Memórias da FATEC São José dos Campos foi criado pela Portaria 01 de 30/06/2022, com o objetivo de resgatar e preservar a memória da instituição por meio de inventário, 
+             acervo e ações culturais ligadas à história da educação tecnológica.</p>
              <a href="#" class="saiba-mais" data-id="centro-memorias">Saiba +</a>
            </div>
          </article>
