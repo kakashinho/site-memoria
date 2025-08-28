@@ -407,6 +407,13 @@ if (secaoInformacoes) {
        <p>Tozi vê a FATEC São José como uma escola viva, em constante transformação, e não acomodada. Reafirma que ali não é lugar de aplicar soluções prontas, mas de prototipar, experimentar e inovar com coragem e visão coletiva. Finaliza destacando que seu papel tem sido garantir autonomia para que a escola continue sendo um espaço de desenvolvimento humano, acadêmico e social, sempre conectada com o ecossistema que a cerca.</p>
      `,
     },
+    'jean': {
+      titulo: 'Não foi feito entrevista',
+      conteudo: `
+       <img src="../statics/imgs/pessoas/jean/jean.png" alt="Jean" class="info-image">
+       <p>Jean</p>
+     `,
+    },
   };
 
   saibaMaisLinks.forEach(link => {
